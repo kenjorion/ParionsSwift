@@ -66,12 +66,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1U-YK-3I9">
+                        <rect key="frame" x="275" y="8" width="21" height="21"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="NIG-fa-SGc" firstAttribute="top" secondItem="8Gy-ut-Bal" secondAttribute="bottom" constant="8" id="3UB-3s-C2C"/>
                     <constraint firstItem="Tvr-dt-QNj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="3sh-jp-TS1"/>
+                    <constraint firstItem="ktu-ZU-M80" firstAttribute="top" secondItem="M1U-YK-3I9" secondAttribute="bottom" constant="-29" id="BoV-Zp-dAq"/>
                     <constraint firstItem="nTM-5M-BZT" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Dsa-fh-7Ui"/>
                     <constraint firstItem="IR4-9U-f10" firstAttribute="top" secondItem="nTM-5M-BZT" secondAttribute="bottom" constant="8" id="Kzk-Xl-yLX"/>
+                    <constraint firstItem="M1U-YK-3I9" firstAttribute="leading" secondItem="ktu-ZU-M80" secondAttribute="trailing" constant="-45" id="LBZ-dc-oHF"/>
                     <constraint firstAttribute="trailing" secondItem="IR4-9U-f10" secondAttribute="trailing" constant="18" id="Ocw-ik-cna"/>
                     <constraint firstItem="nTM-5M-BZT" firstAttribute="leading" secondItem="ltr-5o-KXe" secondAttribute="trailing" constant="65" id="Q5V-X9-GRM"/>
                     <constraint firstItem="8Gy-ut-Bal" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="TAh-TG-DHy"/>
@@ -91,9 +100,12 @@
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="duration" destination="M1U-YK-3I9" id="ILe-oi-Rg7"/>
                 <outlet property="oddA" destination="NIG-fa-SGc" id="MGk-Q8-1LC"/>
                 <outlet property="oddB" destination="IR4-9U-f10" id="lrH-hq-YM1"/>
                 <outlet property="oddC" destination="Tvr-dt-QNj" id="evs-hB-prS"/>
+                <outlet property="scoreA" destination="ygo-vG-cOr" id="GW0-GS-owP"/>
+                <outlet property="scoreB" destination="ltr-5o-KXe" id="h24-Xa-eFI"/>
                 <outlet property="teamA" destination="8Gy-ut-Bal" id="1no-w5-YiS"/>
                 <outlet property="teamB" destination="nTM-5M-BZT" id="REZ-5g-qSb"/>
             </connections>

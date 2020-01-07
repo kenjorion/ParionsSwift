@@ -20,11 +20,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MatchTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        
-        MatchsServices.shared.listenForNewMatchs { match in
-            self.matchs.append(match)
+        let wallet = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(navigateToWallet))
+        navigationItem.rightBarButtonItems = [wallet]
+        MatchsServices.shared.listenForNewMatchs { matchs in
+            self.matchs = matchs
             self.tableView.reloadData()
         }
+    }
+    
+    @objc func navigateToWallet () {
+        let next = WalletViewController()
+        self.navigationController?.pushViewController(next, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,6 +45,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.teamB.text = matchs[indexPath.row].teamB
         cell.oddA.text = String(matchs[indexPath.row].oddA)
         cell.oddB.text = String(matchs[indexPath.row].oddB)
+        cell.oddC.text = String(matchs[indexPath.row].oddC)
+        cell.scoreA.text = String(matchs[indexPath.row].scoreA)
+        cell.scoreB.text = String(matchs[indexPath.row].scoreB)
+        cell.duration.text = String(Int(matchs[indexPath.row].duration/60)) + " min"
 
         
         return cell

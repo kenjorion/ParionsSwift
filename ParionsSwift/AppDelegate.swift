@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let homeViewController = HomeViewController()
-        
         let navigationController = UINavigationController(rootViewController: homeViewController)
         
         let w = UIWindow(frame: UIScreen.main.bounds)
@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = w
         
         MatchsServices.shared.connect()
-        
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_gfMCLLDjoa31ja1ghDz7qgPd00QP7bcENR"
+
         return true
     }
 

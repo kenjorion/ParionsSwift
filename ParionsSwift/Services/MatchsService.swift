@@ -12,7 +12,7 @@ import SocketIO
 class MatchsServices {
 
     static let shared = MatchsServices()
-    let manager = SocketManager(socketURL: URL(string: "http://localhost:8080")!, config: [.log(true), .forceWebsockets(true), .compress])
+    let manager = SocketManager(socketURL: URL(string: "http://localhost:8080")!, config: [.log(false), .forceWebsockets(true), .compress])
     var socket:SocketIOClient!
 
     func connect(){
@@ -25,29 +25,37 @@ class MatchsServices {
         socket.disconnect()
     }
     
-    func listenForNewMatchs(completion: @escaping (_ matchs: Match) ->  Void){
+    func listenForNewMatchs(completion: @escaping (_ matchs: [Match]) ->  Void){
         socket.on("getActiveMatchs") {data, _ in
+            var allMatchs = [Match]()
             guard let matchs = data[0] as? [[String: Any]] else { return }
             matchs.forEach({ match in
-            guard
-            let teamA = match["teamA"] as? String,
-            let teamB = match["teamB"] as? String,
-            let scoreA = match["scoreA"] as? Int,
-            let scoreB = match["scoreB"] as? Int,
-            let oddA = match["oddA"] as? Double,
-            let oddB = match["oddB"] as? Double,
-            let duration = match["duration"] as? Int
-
-            else {
-                return
+                guard
+                let teamA = match["teamA"] as? String,
+                let teamB = match["teamB"] as? String,
+                let scoreA = match["scoreA"] as? Int,
+                let scoreB = match["scoreB"] as? Int,
+                let oddA = match["oddA"] as? Double,
+                let oddB = match["oddB"] as? Double,
+                let oddC = match["oddC"] as? Double,
+                let duration = match["duration"] as? Int
+                else {
+                    return
+                    
+                }
                 
+                let newMatch = Match(teamA: teamA, teamB: teamB, scoreA: scoreA, scoreB: scoreB, oddA: oddA, oddB: oddB, oddC: oddC, duration: duration)
+                allMatchs.append(newMatch)
+                if(allMatchs.count == matchs.count) {
+                    completion(allMatchs)
+                }
+        
+            })
+            if(matchs.count == 0){
+                completion([])
             }
-                
-            let newMatch = Match(teamA: teamA, teamB: teamB, scoreA: scoreA, scoreB: scoreB, oddA: oddA, oddB: oddB, duration: duration)
-                
-            completion(newMatch)
             
-        })}
+        }
     }
     
 }

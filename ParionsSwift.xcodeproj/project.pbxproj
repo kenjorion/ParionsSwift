@@ -15,6 +15,8 @@
 		F9B02C7B23BF952F00C1255E /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */; };
 		F9B02C8023BFA1D600C1255E /* MatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B02C7E23BFA1D600C1255E /* MatchDetailViewController.swift */; };
 		F9B02C8123BFA1D600C1255E /* MatchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B02C7F23BFA1D600C1255E /* MatchDetailViewController.xib */; };
+		F9B02C8423C4882B00C1255E /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B02C8223C4882B00C1255E /* WalletViewController.swift */; };
+		F9B02C8523C4882B00C1255E /* WalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B02C8323C4882B00C1255E /* WalletViewController.xib */; };
 		F9E2833C23AA9A1A00FC83E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2833B23AA9A1A00FC83E2 /* AppDelegate.swift */; };
 		F9E2834323AA9A1C00FC83E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9E2834223AA9A1C00FC83E2 /* Assets.xcassets */; };
 		F9E2834623AA9A1C00FC83E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E2834423AA9A1C00FC83E2 /* LaunchScreen.storyboard */; };
@@ -57,6 +59,8 @@
 		F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
 		F9B02C7E23BFA1D600C1255E /* MatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailViewController.swift; sourceTree = "<group>"; };
 		F9B02C7F23BFA1D600C1255E /* MatchDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchDetailViewController.xib; sourceTree = "<group>"; };
+		F9B02C8223C4882B00C1255E /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		F9B02C8323C4882B00C1255E /* WalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletViewController.xib; sourceTree = "<group>"; };
 		F9E2833823AA9A1A00FC83E2 /* ParionsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParionsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E2833B23AA9A1A00FC83E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9E2834223AA9A1C00FC83E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */,
 				F9B02C7E23BFA1D600C1255E /* MatchDetailViewController.swift */,
 				F9B02C7F23BFA1D600C1255E /* MatchDetailViewController.xib */,
+				F9B02C8223C4882B00C1255E /* WalletViewController.swift */,
+				F9B02C8323C4882B00C1255E /* WalletViewController.xib */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 				F9E2837B23AA9B9300FC83E2 /* HomeViewController.xib in Resources */,
 				F9B02C7B23BF952F00C1255E /* MatchTableViewCell.xib in Resources */,
 				F9B02C8123BFA1D600C1255E /* MatchDetailViewController.xib in Resources */,
+				F9B02C8523C4882B00C1255E /* WalletViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +457,7 @@
 			files = (
 				F9E2833C23AA9A1A00FC83E2 /* AppDelegate.swift in Sources */,
 				F9B02C7723BF880B00C1255E /* MatchsService.swift in Sources */,
+				F9B02C8423C4882B00C1255E /* WalletViewController.swift in Sources */,
 				F9B02C7A23BF952F00C1255E /* MatchTableViewCell.swift in Sources */,
 				F9B02C8023BFA1D600C1255E /* MatchDetailViewController.swift in Sources */,
 				F9E2838523AAAB4700FC83E2 /* Match.swift in Sources */,

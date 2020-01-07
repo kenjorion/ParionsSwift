@@ -16,6 +16,9 @@ class MatchTableViewCell: UITableViewCell {
     @IBOutlet weak var oddA: UILabel!
     @IBOutlet weak var oddB: UILabel!
     @IBOutlet weak var oddC: UILabel!
+    @IBOutlet weak var scoreA: UILabel!
+    @IBOutlet weak var scoreB: UILabel!
+    @IBOutlet weak var duration: UILabel!
     
     
     override func awakeFromNib() {
