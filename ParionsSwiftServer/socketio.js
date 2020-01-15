@@ -20,9 +20,9 @@ const mockActiveMatchs = [
     cwB: 3, 
     hwA: 5, 
     awB: 2,
-    oddA : algoA(8, 4, 4),
+    oddA : algoA(8, 4, 5),
     oddB : algoB(2, 3, 2),
-    oddC: 4,
+    oddC: algoC(8, 4, 5, 2, 3, 2),
     duration: 0
   },
   {
@@ -46,16 +46,36 @@ const randomMatch = () => {
     match.duration += 5;
     if(random < 3){
       if(random%2 === 0){
+        if (match.scoreA - match.scoreB == 1 || match.scoreB - match.scoreA ==1) { 
+          match.oddC += 1;
+        }
         match.scoreA += 1;
-        match.oddA -= 0.1;
+        match.oddA -= 0.2 
+        match.oddA = Math.round(match.oddA*100)/100;
         match.oddB += 0.3;
+        match.oddB = Math.round(match.oddB*100)/100; 
+        if ( match.oddA <= 1 ) 
+          match.oddA = 1.1; 
         return true;
       } else {
+        if (match.scoreA === match.scoreB && match.scoreA >= 1 && match.duration < 50) { 
+          match.oddC -= 1;
+        }
+        else if (match.scoreA - match.scoreB == 2 || match.scoreB - match.scoreA ==2) { 
+          match.oddC += 1;
+        }
         match.scoreB += 1;
-        match.oddB -= 0.1; 
+        match.oddB -= 0.2; 
+        match.oddB = Math.round(match.oddB*100)/100;
         match.oddA += 0.3;
+        match.oddA = Math.round(match.oddA*100)/100;
+        if ( match.oddB <= 1 ) 
+          match.oddB = 1.1; 
         return true;
       }
+    }
+    while (match.scoreA === match.scoreB && match.scoreA >= 1) { 
+      match.oddC -= 1;
     }
     return false;
   });
@@ -79,6 +99,8 @@ let SocketIO = {
 
 function algoA (rwA, cwA, hwA) {
   var oddA = 1.5;
+  var oddAFinal; 
+
     let prwA = (rwA/20)*100;
     prwA = (prwA * oddA) / 100; 
     let rwAT = (oddA/2) - prwA;  
@@ -96,13 +118,17 @@ function algoA (rwA, cwA, hwA) {
 
   if (rwA + cwA + hwA != 20 ) {
       oddA += rwAT + cwAT + hwAT;
-  } 
-  return oddA;
+      if ( oddA <= 1 ) 
+      oddA = 1.1; 
+  }
+  oddAFinal = Math.round(oddA*100)/100;
+  return oddAFinal;
 
 } 
 
 function algoB (rwB, cwB, awB) {
-  var oddB = 3;
+  var oddB = 2;
+  var oddBFinal; 
   let prwB = (rwB/20)*100;
   prwB = (prwB * oddB) / 100; 
   let rwBT = (oddB/2) - prwB;  
@@ -116,9 +142,41 @@ function algoB (rwB, cwB, awB) {
   let awBT = (oddB/4) - pawB; 
 
   if (rwB + cwB + awB != 20 ) {
-  oddB += rwBT + cwBT + awBT;  
+  oddB += rwBT + cwBT + awBT;
+    if ( oddB <= 1 ) 
+      oddB = 1.1; 
   } 
-  return oddB;
+  oddBFinal = Math.round(oddB*100)/100
+  return oddBFinal;
+} 
+
+function algoC (rwA, cwA, hwA, rwB, cwB, awB) {
+  var oddA = algoA(rwA, cwA, hwA);
+  var oddB = algoB(rwB, cwB, awB);
+  var oddC;
+  var oddCFinal;
+  let diff = oddB - oddA;
+
+  if ( diff <= 1)
+    oddC = 4 * (diff)
+  else if ( diff <= 1.5 && diff > 1)
+    oddC = 3.5 * (diff); 
+  else if ( diff <= 2 && diff > 1.5) 
+    oddC = 3 * (diff); 
+  else if ( diff <= 2.5 && diff > 2)
+    oddC = 2.5 * (diff);
+  else if ( diff <= 3 && diff > 2.5)
+    oddC = 2 * (diff);
+  else if ( diff <= 3.5 && diff > 3)
+    oddC = 1.5 * (diff);
+  else if ( diff <= 4 && diff > 3.5)
+    oddC = 1.25 * (diff);
+  else if ( diff > 4)
+    oddC = 2;
+  
+  oddCFinal = Math.round(oddC*100)/100
+  return oddCFinal;
+
 }
 
 export default SocketIO;
