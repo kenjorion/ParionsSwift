@@ -56,7 +56,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let next = MatchDetailViewController()
+        let match = self.matchs[indexPath.row]
+        next.match = match
         self.navigationController?.pushViewController(next, animated: true)
-    }
     
+    }
 }
