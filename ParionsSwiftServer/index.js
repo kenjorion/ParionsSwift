@@ -6,6 +6,8 @@ import SocketIO from "./socketio";
 // Firebase
 import {FirebaseAuth} from "./config";
 
+import {Login} from './routes/';
+
 // Routes
 
 const app = express();
@@ -20,12 +22,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("db", db);
 
+app.use("/login", Login);
+
+
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static("client/build"));
 	app.get("*", (req, res) => {
 		res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 	});
 }
+
 
 server.listen(PORT, err => {
 	if (err) throw err;

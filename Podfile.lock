@@ -1,24 +1,28 @@
 PODS:
+  - Alamofire (4.9.1)
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
   - Stripe (18.3.0)
 
 DEPENDENCIES:
+  - Alamofire
   - Socket.IO-Client-Swift (~> 15.2.0)
   - Stripe
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Socket.IO-Client-Swift
     - Starscream
     - Stripe
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   Stripe: 35b9a54e698c82163d2ef105187a996d009fd386
 
-PODFILE CHECKSUM: fd09bd0786e4189dcfa829035b419e365939cd8d
+PODFILE CHECKSUM: 09d27f00861217df782036c418a4c8e716cf3b49
 
 COCOAPODS: 1.8.4

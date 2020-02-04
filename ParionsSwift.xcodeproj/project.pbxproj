@@ -10,6 +10,11 @@
 		3B5066FF565299CDB9775DA1 /* Pods_ParionsSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B343887A0ED4C55D37E973 /* Pods_ParionsSwiftTests.framework */; };
 		A4BAC6C9C2257716CD697462 /* Pods_ParionsSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09DB9BA790A695747A09F2F /* Pods_ParionsSwift.framework */; };
 		BDE17FF0F421BBC66852FF0D /* Pods_ParionsSwift_ParionsSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F17EA21906CB9DB07F6C83D /* Pods_ParionsSwift_ParionsSwiftUITests.framework */; };
+		F974E5D223E9E7860096508D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5D023E9E7860096508D /* LoginViewController.swift */; };
+		F974E5D323E9E7860096508D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F974E5D123E9E7860096508D /* LoginViewController.xib */; };
+		F974E5D523E9E7E70096508D /* pari.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F974E5D423E9E7E70096508D /* pari.jpg */; };
+		F974E5D723E9EC540096508D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5D623E9EC540096508D /* LoginService.swift */; };
+		F974E5DA23E9F4140096508D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5D923E9F4140096508D /* PaddingLabel.swift */; };
 		F9B02C7723BF880B00C1255E /* MatchsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B02C7623BF880B00C1255E /* MatchsService.swift */; };
 		F9B02C7A23BF952F00C1255E /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B02C7823BF952F00C1255E /* MatchTableViewCell.swift */; };
 		F9B02C7B23BF952F00C1255E /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */; };
@@ -54,6 +59,11 @@
 		E09DB9BA790A695747A09F2F /* Pods_ParionsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParionsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A425F18888AD369D337B78 /* Pods-ParionsSwift-ParionsSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParionsSwift-ParionsSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-ParionsSwift-ParionsSwiftUITests/Pods-ParionsSwift-ParionsSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F72A2B678606479C3A20C897 /* Pods-ParionsSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParionsSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-ParionsSwiftTests/Pods-ParionsSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F974E5D023E9E7860096508D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F974E5D123E9E7860096508D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		F974E5D423E9E7E70096508D /* pari.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pari.jpg; path = ../../../Pictures/pari.jpg; sourceTree = "<group>"; };
+		F974E5D623E9EC540096508D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		F974E5D923E9F4140096508D /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		F9B02C7623BF880B00C1255E /* MatchsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchsService.swift; sourceTree = "<group>"; };
 		F9B02C7823BF952F00C1255E /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
@@ -128,10 +138,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F974E5D823E9F4080096508D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F974E5D923E9F4140096508D /* PaddingLabel.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		F9B02C7523BF87F300C1255E /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				F9B02C7623BF880B00C1255E /* MatchsService.swift */,
+				F974E5D623E9EC540096508D /* LoginService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -147,6 +166,8 @@
 				F9B02C7F23BFA1D600C1255E /* MatchDetailViewController.xib */,
 				F9B02C8223C4882B00C1255E /* WalletViewController.swift */,
 				F9B02C8323C4882B00C1255E /* WalletViewController.xib */,
+				F974E5D023E9E7860096508D /* LoginViewController.swift */,
+				F974E5D123E9E7860096508D /* LoginViewController.xib */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -176,11 +197,13 @@
 		F9E2833A23AA9A1A00FC83E2 /* ParionsSwift */ = {
 			isa = PBXGroup;
 			children = (
+				F974E5D823E9F4080096508D /* Modules */,
 				F9B02C7C23BFA17900C1255E /* Screens */,
 				F9B02C7523BF87F300C1255E /* Services */,
 				F9E2838323AAAB1F00FC83E2 /* Models */,
 				F9E2833B23AA9A1A00FC83E2 /* AppDelegate.swift */,
 				F9E2834223AA9A1C00FC83E2 /* Assets.xcassets */,
+				F974E5D423E9E7E70096508D /* pari.jpg */,
 				F9E2834423AA9A1C00FC83E2 /* LaunchScreen.storyboard */,
 				F9E2834723AA9A1C00FC83E2 /* Info.plist */,
 			);
@@ -325,8 +348,10 @@
 				F9E2834623AA9A1C00FC83E2 /* LaunchScreen.storyboard in Resources */,
 				F9E2834323AA9A1C00FC83E2 /* Assets.xcassets in Resources */,
 				F9E2837B23AA9B9300FC83E2 /* HomeViewController.xib in Resources */,
+				F974E5D523E9E7E70096508D /* pari.jpg in Resources */,
 				F9B02C7B23BF952F00C1255E /* MatchTableViewCell.xib in Resources */,
 				F9B02C8123BFA1D600C1255E /* MatchDetailViewController.xib in Resources */,
+				F974E5D323E9E7860096508D /* LoginViewController.xib in Resources */,
 				F9B02C8523C4882B00C1255E /* WalletViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +484,9 @@
 				F9B02C7723BF880B00C1255E /* MatchsService.swift in Sources */,
 				F9B02C8423C4882B00C1255E /* WalletViewController.swift in Sources */,
 				F9B02C7A23BF952F00C1255E /* MatchTableViewCell.swift in Sources */,
+				F974E5D723E9EC540096508D /* LoginService.swift in Sources */,
+				F974E5D223E9E7860096508D /* LoginViewController.swift in Sources */,
+				F974E5DA23E9F4140096508D /* PaddingLabel.swift in Sources */,
 				F9B02C8023BFA1D600C1255E /* MatchDetailViewController.swift in Sources */,
 				F9E2838523AAAB4700FC83E2 /* Match.swift in Sources */,
 				F9E2837A23AA9B9300FC83E2 /* HomeViewController.swift in Sources */,

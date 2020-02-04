@@ -44,8 +44,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.teamA.text = matchs[indexPath.row].teamA
         cell.teamB.text = matchs[indexPath.row].teamB
         cell.oddA.text = String(matchs[indexPath.row].oddA)
+        cell.oddA.layer.cornerRadius = 5
+        cell.oddA.layer.masksToBounds = true
         cell.oddB.text = String(matchs[indexPath.row].oddB)
+        cell.oddB.layer.cornerRadius = 5
+        cell.oddB.layer.masksToBounds = true
         cell.oddC.text = String(matchs[indexPath.row].oddC)
+        cell.oddC.layer.cornerRadius = 5
+        cell.oddC.layer.masksToBounds = true
         cell.scoreA.text = String(matchs[indexPath.row].scoreA)
         cell.scoreB.text = String(matchs[indexPath.row].scoreB)
         cell.duration.text = String(Int(matchs[indexPath.row].duration/60)) + " min"

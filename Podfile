@@ -9,6 +9,7 @@ target 'ParionsSwift' do
 
     pod 'Socket.IO-Client-Swift', '~> 15.2.0'
     pod 'Stripe'
+    pod 'Alamofire'
 
   target 'ParionsSwiftTests' do
     inherit! :search_paths
