@@ -58,4 +58,37 @@ class MatchsServices {
         }
     }
     
+    func getActiveBets(matchID: String, completion: @escaping (_ bets: [Bet]) ->  Void){
+        socket.emit("getBetsByID", matchID);
+        socket.on("receiveBetsByID") {data, _ in
+            var allBets = [Bet]()
+            guard let bets = data[0] as? [[String: Any]] else { return }
+            bets.forEach({ bet in
+                guard
+                    let name = bet["name"] as? String,
+                    let teamA = bet["teamA"] as? String,
+                    let teamB = bet["teamB"] as? String,
+                    let oddA = bet["oddA"] as? Double,
+                    let oddB = bet["oddB"] as? Double,
+                    let oddC = bet["oddC"] as? Double
+                else {
+                    return
+                        
+                }
+                let newBet = Bet(name: name, teamA: teamA, teamB: teamB, oddA: oddA, oddB: oddB, oddC: oddC)
+                print(newBet)
+                allBets.append(newBet)
+                print("allBets", allBets)
+                if(allBets.count == bets.count) {
+                    completion(allBets)
+                }
+                
+            })
+            if(allBets.count == 0){
+                completion([])
+            }
+            
+        }
+    }
+    
 }

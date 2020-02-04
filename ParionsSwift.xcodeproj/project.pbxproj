@@ -15,6 +15,9 @@
 		F974E5D523E9E7E70096508D /* pari.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F974E5D423E9E7E70096508D /* pari.jpg */; };
 		F974E5D723E9EC540096508D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5D623E9EC540096508D /* LoginService.swift */; };
 		F974E5DA23E9F4140096508D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5D923E9F4140096508D /* PaddingLabel.swift */; };
+		F974E5DD23E9FAAD0096508D /* BetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5DB23E9FAAD0096508D /* BetTableViewCell.swift */; };
+		F974E5DE23E9FAAD0096508D /* BetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F974E5DC23E9FAAD0096508D /* BetTableViewCell.xib */; };
+		F974E5E423E9FE1F0096508D /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5E323E9FE1F0096508D /* Bet.swift */; };
 		F9B02C7723BF880B00C1255E /* MatchsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B02C7623BF880B00C1255E /* MatchsService.swift */; };
 		F9B02C7A23BF952F00C1255E /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B02C7823BF952F00C1255E /* MatchTableViewCell.swift */; };
 		F9B02C7B23BF952F00C1255E /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */; };
@@ -64,6 +67,9 @@
 		F974E5D423E9E7E70096508D /* pari.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pari.jpg; path = ../../../Pictures/pari.jpg; sourceTree = "<group>"; };
 		F974E5D623E9EC540096508D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		F974E5D923E9F4140096508D /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		F974E5DB23E9FAAD0096508D /* BetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetTableViewCell.swift; sourceTree = "<group>"; };
+		F974E5DC23E9FAAD0096508D /* BetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BetTableViewCell.xib; sourceTree = "<group>"; };
+		F974E5E323E9FE1F0096508D /* Bet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bet.swift; sourceTree = "<group>"; };
 		F9B02C7623BF880B00C1255E /* MatchsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchsService.swift; sourceTree = "<group>"; };
 		F9B02C7823BF952F00C1255E /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
@@ -146,6 +152,46 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		F974E5DF23E9FAB50096508D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F9E2837823AA9B9300FC83E2 /* HomeViewController.swift */,
+				F9E2837923AA9B9300FC83E2 /* HomeViewController.xib */,
+				F9B02C7823BF952F00C1255E /* MatchTableViewCell.swift */,
+				F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F974E5E023E9FAC20096508D /* BetDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F9B02C7E23BFA1D600C1255E /* MatchDetailViewController.swift */,
+				F9B02C7F23BFA1D600C1255E /* MatchDetailViewController.xib */,
+				F974E5DB23E9FAAD0096508D /* BetTableViewCell.swift */,
+				F974E5DC23E9FAAD0096508D /* BetTableViewCell.xib */,
+			);
+			path = BetDetail;
+			sourceTree = "<group>";
+		};
+		F974E5E123E9FAD70096508D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F974E5D023E9E7860096508D /* LoginViewController.swift */,
+				F974E5D123E9E7860096508D /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F974E5E223E9FAE70096508D /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				F9B02C8223C4882B00C1255E /* WalletViewController.swift */,
+				F9B02C8323C4882B00C1255E /* WalletViewController.xib */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 		F9B02C7523BF87F300C1255E /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,16 +204,10 @@
 		F9B02C7C23BFA17900C1255E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F9E2837823AA9B9300FC83E2 /* HomeViewController.swift */,
-				F9E2837923AA9B9300FC83E2 /* HomeViewController.xib */,
-				F9B02C7823BF952F00C1255E /* MatchTableViewCell.swift */,
-				F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */,
-				F9B02C7E23BFA1D600C1255E /* MatchDetailViewController.swift */,
-				F9B02C7F23BFA1D600C1255E /* MatchDetailViewController.xib */,
-				F9B02C8223C4882B00C1255E /* WalletViewController.swift */,
-				F9B02C8323C4882B00C1255E /* WalletViewController.xib */,
-				F974E5D023E9E7860096508D /* LoginViewController.swift */,
-				F974E5D123E9E7860096508D /* LoginViewController.xib */,
+				F974E5E223E9FAE70096508D /* Wallet */,
+				F974E5E123E9FAD70096508D /* Login */,
+				F974E5E023E9FAC20096508D /* BetDetail */,
+				F974E5DF23E9FAB50096508D /* Home */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -232,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				F9E2838423AAAB4700FC83E2 /* Match.swift */,
+				F974E5E323E9FE1F0096508D /* Bet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -347,6 +388,7 @@
 			files = (
 				F9E2834623AA9A1C00FC83E2 /* LaunchScreen.storyboard in Resources */,
 				F9E2834323AA9A1C00FC83E2 /* Assets.xcassets in Resources */,
+				F974E5DE23E9FAAD0096508D /* BetTableViewCell.xib in Resources */,
 				F9E2837B23AA9B9300FC83E2 /* HomeViewController.xib in Resources */,
 				F974E5D523E9E7E70096508D /* pari.jpg in Resources */,
 				F9B02C7B23BF952F00C1255E /* MatchTableViewCell.xib in Resources */,
@@ -487,8 +529,10 @@
 				F974E5D723E9EC540096508D /* LoginService.swift in Sources */,
 				F974E5D223E9E7860096508D /* LoginViewController.swift in Sources */,
 				F974E5DA23E9F4140096508D /* PaddingLabel.swift in Sources */,
+				F974E5E423E9FE1F0096508D /* Bet.swift in Sources */,
 				F9B02C8023BFA1D600C1255E /* MatchDetailViewController.swift in Sources */,
 				F9E2838523AAAB4700FC83E2 /* Match.swift in Sources */,
+				F974E5DD23E9FAAD0096508D /* BetTableViewCell.swift in Sources */,
 				F9E2837A23AA9B9300FC83E2 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

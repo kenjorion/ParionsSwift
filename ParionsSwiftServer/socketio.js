@@ -23,7 +23,25 @@ const mockActiveMatchs = [
     oddA : algoA(8, 4, 5),
     oddB : algoB(2, 3, 2),
     oddC: algoC(8, 4, 5, 2, 3, 2),
-    duration: 0
+    duration: 0,
+    bets: [
+      {
+        name: "1 N 2 - Live 90 Mins",
+        teamA: 'PSG',
+        teamB: 'OL',
+        oddA : algoA(8, 4, 5),
+        oddB : algoB(2, 3, 2),
+        oddC: algoC(8, 4, 5, 2, 3, 2),
+      },
+      {
+        name: "1 N 2 - Live Mi-temps",
+        teamA: 'PSG',
+        teamB: 'OL',
+        oddA : algoA(8, 4, 5),
+        oddB : algoB(2, 3, 2),
+        oddC: algoC(8, 4, 5, 2, 3, 2),
+      }
+    ]
   },
   {
     id: 'm12345',
@@ -36,7 +54,25 @@ const mockActiveMatchs = [
     oddA: 1.5,
     oddB: 2,
     oddC: 4,
-    duration: 0
+    duration: 0,
+    bets: [
+      {
+        name: "1 N 2 - Live 90 Mins",
+        teamA: 'PSG',
+        teamB: 'OL',
+        oddA : algoA(8, 4, 5),
+        oddB : algoB(2, 3, 2),
+        oddC: algoC(8, 4, 5, 2, 3, 2),
+      },
+      {
+        name: "1 N 2 - Live Mi-temps",
+        teamA: 'PSG',
+        teamB: 'OL',
+        oddA : algoA(8, 4, 5),
+        oddB : algoB(2, 3, 2),
+        oddC: algoC(8, 4, 5, 2, 3, 2),
+      }
+    ]
   }
 ];
 
@@ -84,13 +120,20 @@ let SocketIO = {
   start: server => {
     const ioServer = io(server);
 
-    
-
     ioServer.on('connect', socket => {
       setInterval(() => {
         randomMatch();
         socket.emit('getActiveMatchs', mockActiveMatchs);
       }, 5000);
+
+      socket.on('getBetsByID', matchID => {
+        const match = mockActiveMatchs.find(match => match.id === matchID);
+        setInterval(() => {
+          console.log(match);
+          socket.emit('receiveBetsByID', match.bets);
+        }, 5000);
+      });
+
     });
 
 

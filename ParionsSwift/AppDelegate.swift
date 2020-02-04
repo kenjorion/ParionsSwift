@@ -16,18 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        let loginViewController = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: loginViewController)
+        
+        MatchsServices.shared.connect()
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_gfMCLLDjoa31ja1ghDz7qgPd00QP7bcENR"
+        
+        let homeViewController = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: homeViewController)
         
         let w = UIWindow(frame: UIScreen.main.bounds)
         w.rootViewController = navigationController
         w.makeKeyAndVisible()
         self.window = w
-        
-        MatchsServices.shared.connect()
-        STPPaymentConfiguration.shared().publishableKey = "pk_test_gfMCLLDjoa31ja1ghDz7qgPd00QP7bcENR"
-
         return true
     }
 
