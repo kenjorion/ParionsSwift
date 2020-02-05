@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SelectedBet: Equatable {
+public struct SelectedBet: Equatable, Codable {
     var bet: Bet
     var index: Int
     var odd: Int
@@ -24,26 +24,37 @@ struct SelectedBet: Equatable {
 class MatchDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectOddDelegate {
     
     let cellIdentifier = "cell"
+    var match: Match!
     var bets = [Bet]()
     var selectedBets = [SelectedBet]()
     @IBOutlet var tableView: UITableView!
     @IBOutlet var potentialGainLabel: UILabel!
     @IBOutlet var betTextField: UITextField!
+    @IBOutlet var teamA: UILabel!
+    @IBOutlet var scoreA: UILabel!
+    @IBOutlet var scoreB: UILabel!
+    @IBOutlet var teamB: UILabel!
+    @IBOutlet var availableFund: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "BetTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        MatchsServices.shared.getActiveBets(matchID: "m12345", completion: { bets in
+        MatchsServices.shared.getActiveBets(matchID: match.id, completion: { bets in
             self.bets = bets
             self.tableView.reloadData()
         })
         potentialGainLabel.text = "0.00€"
         betTextField.text = "0"
-        betTextField.addTarget(self, action: #selector(MatchDetailViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-
+        teamA.text = match.teamA
+        teamB.text = match.teamB
+        scoreA.text = String(match.scoreA)
+        scoreB.text = String(match.scoreB)
+        availableFund.text = String(UserSingleton.user.availableFund) + "€ available"
+        
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bets.count
@@ -105,6 +116,15 @@ class MatchDetailViewController: UIViewController, UITableViewDelegate, UITableV
         return potentialGain
     }
     
+    @IBAction func betButtonTapped(_ sender: Any) {
+        
+        let bet: Double? = Double(self.betTextField.text!)
+        if(UserSingleton.user.availableFund - bet! > 0){
+            BetService.default.newBet(matchID: match.id, selectedBets: selectedBets, betAmount: bet!)
+            UserSingleton.user.availableFund -= bet!
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }
 

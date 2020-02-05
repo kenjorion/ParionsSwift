@@ -12,12 +12,14 @@
 		BDE17FF0F421BBC66852FF0D /* Pods_ParionsSwift_ParionsSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F17EA21906CB9DB07F6C83D /* Pods_ParionsSwift_ParionsSwiftUITests.framework */; };
 		F974E5D223E9E7860096508D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5D023E9E7860096508D /* LoginViewController.swift */; };
 		F974E5D323E9E7860096508D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F974E5D123E9E7860096508D /* LoginViewController.xib */; };
-		F974E5D523E9E7E70096508D /* pari.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F974E5D423E9E7E70096508D /* pari.jpg */; };
 		F974E5D723E9EC540096508D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5D623E9EC540096508D /* LoginService.swift */; };
 		F974E5DA23E9F4140096508D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5D923E9F4140096508D /* PaddingLabel.swift */; };
 		F974E5DD23E9FAAD0096508D /* BetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5DB23E9FAAD0096508D /* BetTableViewCell.swift */; };
 		F974E5DE23E9FAAD0096508D /* BetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F974E5DC23E9FAAD0096508D /* BetTableViewCell.xib */; };
 		F974E5E423E9FE1F0096508D /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974E5E323E9FE1F0096508D /* Bet.swift */; };
+		F979D7D523EB3BFD00848D66 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D7D423EB3BFD00848D66 /* User.swift */; };
+		F979D7D723EB423C00848D66 /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D7D623EB423C00848D66 /* UserSingleton.swift */; };
+		F979D7D923EB5A9500848D66 /* BetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D7D823EB5A9500848D66 /* BetService.swift */; };
 		F9B02C7723BF880B00C1255E /* MatchsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B02C7623BF880B00C1255E /* MatchsService.swift */; };
 		F9B02C7A23BF952F00C1255E /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B02C7823BF952F00C1255E /* MatchTableViewCell.swift */; };
 		F9B02C7B23BF952F00C1255E /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */; };
@@ -64,12 +66,14 @@
 		F72A2B678606479C3A20C897 /* Pods-ParionsSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParionsSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-ParionsSwiftTests/Pods-ParionsSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F974E5D023E9E7860096508D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F974E5D123E9E7860096508D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		F974E5D423E9E7E70096508D /* pari.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pari.jpg; path = ../../../Pictures/pari.jpg; sourceTree = "<group>"; };
 		F974E5D623E9EC540096508D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		F974E5D923E9F4140096508D /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		F974E5DB23E9FAAD0096508D /* BetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetTableViewCell.swift; sourceTree = "<group>"; };
 		F974E5DC23E9FAAD0096508D /* BetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BetTableViewCell.xib; sourceTree = "<group>"; };
 		F974E5E323E9FE1F0096508D /* Bet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bet.swift; sourceTree = "<group>"; };
+		F979D7D423EB3BFD00848D66 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F979D7D623EB423C00848D66 /* UserSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
+		F979D7D823EB5A9500848D66 /* BetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetService.swift; sourceTree = "<group>"; };
 		F9B02C7623BF880B00C1255E /* MatchsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchsService.swift; sourceTree = "<group>"; };
 		F9B02C7823BF952F00C1255E /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 			children = (
 				F9B02C7623BF880B00C1255E /* MatchsService.swift */,
 				F974E5D623E9EC540096508D /* LoginService.swift */,
+				F979D7D823EB5A9500848D66 /* BetService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -243,9 +248,9 @@
 				F9E2838323AAAB1F00FC83E2 /* Models */,
 				F9E2833B23AA9A1A00FC83E2 /* AppDelegate.swift */,
 				F9E2834223AA9A1C00FC83E2 /* Assets.xcassets */,
-				F974E5D423E9E7E70096508D /* pari.jpg */,
 				F9E2834423AA9A1C00FC83E2 /* LaunchScreen.storyboard */,
 				F9E2834723AA9A1C00FC83E2 /* Info.plist */,
+				F979D7D623EB423C00848D66 /* UserSingleton.swift */,
 			);
 			path = ParionsSwift;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 		F9E2838323AAAB1F00FC83E2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F979D7D423EB3BFD00848D66 /* User.swift */,
 				F9E2838423AAAB4700FC83E2 /* Match.swift */,
 				F974E5E323E9FE1F0096508D /* Bet.swift */,
 			);
@@ -390,7 +396,6 @@
 				F9E2834323AA9A1C00FC83E2 /* Assets.xcassets in Resources */,
 				F974E5DE23E9FAAD0096508D /* BetTableViewCell.xib in Resources */,
 				F9E2837B23AA9B9300FC83E2 /* HomeViewController.xib in Resources */,
-				F974E5D523E9E7E70096508D /* pari.jpg in Resources */,
 				F9B02C7B23BF952F00C1255E /* MatchTableViewCell.xib in Resources */,
 				F9B02C8123BFA1D600C1255E /* MatchDetailViewController.xib in Resources */,
 				F974E5D323E9E7860096508D /* LoginViewController.xib in Resources */,
@@ -522,9 +527,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F979D7D523EB3BFD00848D66 /* User.swift in Sources */,
 				F9E2833C23AA9A1A00FC83E2 /* AppDelegate.swift in Sources */,
 				F9B02C7723BF880B00C1255E /* MatchsService.swift in Sources */,
 				F9B02C8423C4882B00C1255E /* WalletViewController.swift in Sources */,
+				F979D7D923EB5A9500848D66 /* BetService.swift in Sources */,
+				F979D7D723EB423C00848D66 /* UserSingleton.swift in Sources */,
 				F9B02C7A23BF952F00C1255E /* MatchTableViewCell.swift in Sources */,
 				F974E5D723E9EC540096508D /* LoginService.swift in Sources */,
 				F974E5D223E9E7860096508D /* LoginViewController.swift in Sources */,

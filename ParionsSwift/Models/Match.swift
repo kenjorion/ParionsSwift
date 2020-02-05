@@ -9,8 +9,9 @@
 import Foundation
 
 
-struct Match {
+public class Match {
     
+    var id: String
     var teamA: String
     var teamB: String
     var scoreA: Int
@@ -20,7 +21,8 @@ struct Match {
     var oddC: Double
     var duration: Int
     
-    init(teamA: String, teamB: String, scoreA: Int, scoreB: Int, oddA: Double, oddB: Double, oddC: Double, duration: Int) {
+    init(id: String, teamA: String, teamB: String, scoreA: Int, scoreB: Int, oddA: Double, oddB: Double, oddC: Double, duration: Int) {
+        self.id = id
         self.teamA = teamA
         self.teamB = teamB
         self.scoreA = scoreA

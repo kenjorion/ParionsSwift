@@ -6,7 +6,7 @@ import SocketIO from "./socketio";
 // Firebase
 import {FirebaseAuth} from "./config";
 
-import {Login} from './routes/';
+import {Login, Bets} from './routes';
 
 // Routes
 
@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 app.set("db", db);
 
 app.use("/login", Login);
+app.use("/bets", Bets);
 
 
 if (process.env.NODE_ENV === "production") {

@@ -123,11 +123,14 @@ let SocketIO = {
     ioServer.on('connect', socket => {
       setInterval(() => {
         randomMatch();
+      }, 5000);
+      setInterval(() => {
         socket.emit('getActiveMatchs', mockActiveMatchs);
       }, 5000);
 
       socket.on('getBetsByID', matchID => {
         const match = mockActiveMatchs.find(match => match.id === matchID);
+        console.log(match.bets);
         setInterval(() => {
           socket.emit('receiveBetsByID', match.bets);
         }, 5000);

@@ -26,6 +26,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.matchs = matchs
             self.tableView.reloadData()
         }
+        
+        print(UserSingleton.user.username)
     }
     
     @objc func navigateToWallet () {
@@ -62,6 +64,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let next = MatchDetailViewController()
+        next.match = matchs[indexPath.row]
         self.navigationController?.pushViewController(next, animated: true)
     }
     

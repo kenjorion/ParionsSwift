@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Bet: Equatable {
+public struct Bet: Equatable, Codable {
     
     var name: String
     var teamA: String

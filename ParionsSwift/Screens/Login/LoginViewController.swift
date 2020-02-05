@@ -23,9 +23,9 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButton(_ sender: Any) {
-        LoginService.default.login(email: usernameTextField.text!, password: passwordTextField.text!) { response in
+        LoginService.default.login(username: usernameTextField.text!, password: passwordTextField.text!) { user in
             
-            if(response == true){
+            if(user.id.count > 0){
                 let hvc = HomeViewController()
                 let navigationController = UINavigationController(rootViewController: hvc)
                 let w = UIWindow(frame: UIScreen.main.bounds)

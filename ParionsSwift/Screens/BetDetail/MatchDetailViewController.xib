@@ -12,9 +12,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchDetailViewController" customModule="ParionsSwift" customModuleProvider="target">
             <connections>
+                <outlet property="availableFund" destination="mTa-KA-erv" id="s8v-sc-yqY"/>
                 <outlet property="betTextField" destination="Px1-NM-7dY" id="IEs-xk-VRy"/>
                 <outlet property="potentialGainLabel" destination="eC7-38-Pte" id="KuU-o1-1ED"/>
+                <outlet property="scoreA" destination="M33-AZ-AGd" id="eHf-Dm-puE"/>
+                <outlet property="scoreB" destination="AzL-c4-baV" id="9Lc-bU-UfN"/>
                 <outlet property="tableView" destination="ldg-7u-tGa" id="9NT-Gd-H53"/>
+                <outlet property="teamA" destination="teD-GZ-Hcd" id="3CX-hZ-RFn"/>
+                <outlet property="teamB" destination="qsN-c1-EjS" id="Y45-Fe-Egp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -122,6 +127,9 @@
                             <state key="normal" title="BET">
                                 <color key="titleColor" red="0.87532383420000004" green="0.87532383420000004" blue="0.87532383420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="betButtonTapped:" destination="-1" eventType="touchUpInside" id="JGA-qV-dqy"/>
+                            </connections>
                         </button>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Px1-NM-7dY">
                             <rect key="frame" x="114" y="73" width="286" height="30"/>

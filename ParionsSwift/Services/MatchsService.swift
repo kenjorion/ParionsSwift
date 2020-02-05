@@ -31,6 +31,7 @@ class MatchsServices {
             guard let matchs = data[0] as? [[String: Any]] else { return }
             matchs.forEach({ match in
                 guard
+                let id = match["id"] as? String,
                 let teamA = match["teamA"] as? String,
                 let teamB = match["teamB"] as? String,
                 let scoreA = match["scoreA"] as? Int,
@@ -44,7 +45,7 @@ class MatchsServices {
                     
                 }
                 
-                let newMatch = Match(teamA: teamA, teamB: teamB, scoreA: scoreA, scoreB: scoreB, oddA: oddA, oddB: oddB, oddC: oddC, duration: duration)
+                let newMatch = Match(id: id, teamA: teamA, teamB: teamB, scoreA: scoreA, scoreB: scoreB, oddA: oddA, oddB: oddB, oddC: oddC, duration: duration)
                 allMatchs.append(newMatch)
                 if(allMatchs.count == matchs.count) {
                     completion(allMatchs)

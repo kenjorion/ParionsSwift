@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MatchsServices.shared.connect()
         STPPaymentConfiguration.shared().publishableKey = "pk_test_gfMCLLDjoa31ja1ghDz7qgPd00QP7bcENR"
         
-        let homeViewController = HomeViewController()
+        let homeViewController = LoginViewController()
         let navigationController = UINavigationController(rootViewController: homeViewController)
         
         let w = UIWindow(frame: UIScreen.main.bounds)

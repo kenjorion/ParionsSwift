@@ -13,16 +13,21 @@ public class LoginService {
     
     public static let `default` = LoginService()
     
-    public func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
+    public func login(username: String, password: String, completion: @escaping (User) -> Void) {
         
-        let parameters: Parameters = ["email": email, "password": password]
+        let parameters: Parameters = ["username": username, "password": password]
         
         Alamofire.request("http://localhost:8080/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (res) in
-            guard let isConnected = res.result.value as? Bool
-                else {
-                    return
+            guard let json = res.result.value as? [String: Any],
+            let id = json["id"] as? String,
+            let username = json["username"] as? String,
+            let availableFund = json["availableFund"] as? Double
+            else {
+                return
             }
-            completion(isConnected)
+            let user = User(id: id, username: username, availableFund: availableFund)
+            UserSingleton.user = user
+            completion(user)
         }
     }
 }
