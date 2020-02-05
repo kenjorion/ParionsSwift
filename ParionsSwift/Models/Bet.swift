@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Bet {
+struct Bet: Equatable {
     
     var name: String
     var teamA: String

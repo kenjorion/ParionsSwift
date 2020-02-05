@@ -129,7 +129,6 @@ let SocketIO = {
       socket.on('getBetsByID', matchID => {
         const match = mockActiveMatchs.find(match => match.id === matchID);
         setInterval(() => {
-          console.log(match);
           socket.emit('receiveBetsByID', match.bets);
         }, 5000);
       });

@@ -47,49 +47,67 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kno-p3-auG">
+                        <rect key="frame" x="307" y="93" width="55" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Aa4-MN-oO8"/>
+                            <constraint firstAttribute="width" constant="55" id="DnK-zq-B0K"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                        <state key="normal" title="2">
+                            <color key="titleColor" red="0.15429557529999999" green="0.15136366109999999" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="oddB:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ydz-7i-cJK"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQg-n7-lNY">
+                        <rect key="frame" x="307" y="121" width="55" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Nti-ON-Gig"/>
+                            <constraint firstAttribute="width" constant="55" id="dJz-sx-jKk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                        <state key="normal" title="3">
+                            <color key="titleColor" red="0.15429557529999999" green="0.15136366109999999" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="oddC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OjD-TP-mJx"/>
+                        </connections>
+                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNW-Ay-A5T">
-                        <rect key="frame" x="315" y="64" width="30" height="32"/>
+                        <rect key="frame" x="307" y="66" width="55" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="FXH-0m-2hG"/>
+                            <constraint firstAttribute="width" constant="55" id="iUu-b5-zEs"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                        <state key="normal" title="1.50">
+                        <state key="normal" title="1">
                             <color key="titleColor" red="0.15429557529999999" green="0.15136366109999999" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK8-Ux-B0d">
-                        <rect key="frame" x="315" y="122" width="30" height="32"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                        <state key="normal" title="1.50">
-                            <color key="titleColor" red="0.15429557529999999" green="0.15136366109999999" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEz-Ye-bXz">
-                        <rect key="frame" x="315" y="94" width="30" height="32"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                        <state key="normal" title="1.50">
-                            <color key="titleColor" red="0.15429557529999999" green="0.15136366109999999" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
+                        <connections>
+                            <action selector="oddA:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IIy-1H-k1U"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="dK8-Ux-B0d" secondAttribute="bottom" constant="2.5" id="04N-dc-UPj"/>
-                    <constraint firstAttribute="bottom" secondItem="MEz-Ye-bXz" secondAttribute="bottom" constant="30.5" id="7U1-2z-6bd"/>
-                    <constraint firstItem="dK8-Ux-B0d" firstAttribute="top" secondItem="dNW-Ay-A5T" secondAttribute="bottom" constant="26" id="C3Z-oy-uwX"/>
+                    <constraint firstAttribute="trailing" secondItem="dNW-Ay-A5T" secondAttribute="trailing" constant="7" id="4Sq-u1-gyV"/>
+                    <constraint firstItem="dNW-Ay-A5T" firstAttribute="top" secondItem="Az2-wx-4Fy" secondAttribute="bottom" constant="26" id="6aC-kz-Wde"/>
                     <constraint firstAttribute="trailingMargin" secondItem="RTz-6K-Rsb" secondAttribute="trailing" constant="252" id="D09-gk-mxq"/>
                     <constraint firstItem="dcZ-Vb-lER" firstAttribute="top" secondItem="Az2-wx-4Fy" secondAttribute="bottom" constant="24" id="DM5-wq-zi9"/>
                     <constraint firstAttribute="trailing" secondItem="hQg-Rj-0VI" secondAttribute="trailing" constant="272" id="EbM-41-bY8"/>
-                    <constraint firstItem="dNW-Ay-A5T" firstAttribute="top" secondItem="Az2-wx-4Fy" secondAttribute="bottom" constant="24" id="JJ8-xM-5wS"/>
-                    <constraint firstItem="dK8-Ux-B0d" firstAttribute="top" secondItem="dNW-Ay-A5T" secondAttribute="bottom" constant="26" id="Lki-UZ-gDm"/>
+                    <constraint firstAttribute="trailing" secondItem="Kno-p3-auG" secondAttribute="trailing" constant="7" id="M3y-rG-pej"/>
                     <constraint firstItem="Az2-wx-4Fy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="R9f-aB-PRI"/>
-                    <constraint firstAttribute="trailing" secondItem="MEz-Ye-bXz" secondAttribute="trailing" constant="24" id="Vc7-yr-edZ"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="dNW-Ay-A5T" secondAttribute="trailing" constant="4" id="Z54-k6-bGa"/>
+                    <constraint firstItem="Kno-p3-auG" firstAttribute="top" secondItem="dNW-Ay-A5T" secondAttribute="bottom" constant="2" id="X3E-NZ-sf6"/>
+                    <constraint firstItem="LQg-n7-lNY" firstAttribute="top" secondItem="Kno-p3-auG" secondAttribute="bottom" constant="3" id="Y7S-SI-66C"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dcZ-Vb-lER" secondAttribute="trailing" constant="252" id="a32-DX-qZS"/>
                     <constraint firstItem="dcZ-Vb-lER" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="bDB-A1-xlK"/>
+                    <constraint firstAttribute="trailing" secondItem="LQg-n7-lNY" secondAttribute="trailing" constant="7" id="jaA-wD-bkZ"/>
                     <constraint firstItem="hQg-Rj-0VI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="k5Q-Gu-iQb"/>
                     <constraint firstItem="Az2-wx-4Fy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kMh-5a-IYY"/>
                     <constraint firstAttribute="bottom" secondItem="hQg-Rj-0VI" secondAttribute="bottom" constant="12.5" id="mdF-nn-1xX"/>
                     <constraint firstAttribute="trailing" secondItem="Az2-wx-4Fy" secondAttribute="trailing" id="rM2-6f-DaX"/>
-                    <constraint firstItem="MEz-Ye-bXz" firstAttribute="top" secondItem="Az2-wx-4Fy" secondAttribute="bottom" constant="54" id="v6J-Sa-Jw5"/>
                     <constraint firstItem="RTz-6K-Rsb" firstAttribute="top" secondItem="dcZ-Vb-lER" secondAttribute="bottom" constant="8" id="vCK-jD-GVk"/>
-                    <constraint firstAttribute="trailing" secondItem="dK8-Ux-B0d" secondAttribute="trailing" constant="24" id="w9v-5T-aFR"/>
                     <constraint firstItem="RTz-6K-Rsb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="xAW-QH-RVZ"/>
                     <constraint firstItem="hQg-Rj-0VI" firstAttribute="top" secondItem="RTz-6K-Rsb" secondAttribute="bottom" constant="6" id="xGr-Zs-ADZ"/>
                 </constraints>
@@ -97,9 +115,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="betName" destination="Az2-wx-4Fy" id="xnj-gE-7zr"/>
-                <outlet property="oddA" destination="dNW-Ay-A5T" id="5yR-87-r7I"/>
-                <outlet property="oddB" destination="MEz-Ye-bXz" id="a0T-jL-mR1"/>
-                <outlet property="oddC" destination="dK8-Ux-B0d" id="Wl0-Y1-B9W"/>
+                <outlet property="oddA" destination="dNW-Ay-A5T" id="YAd-wL-1Oe"/>
+                <outlet property="oddB" destination="Kno-p3-auG" id="8uC-uu-ZOb"/>
+                <outlet property="oddC" destination="LQg-n7-lNY" id="Slf-3V-UEJ"/>
                 <outlet property="teamALabel" destination="dcZ-Vb-lER" id="soe-Db-TwO"/>
                 <outlet property="teamBLabel" destination="hQg-Rj-0VI" id="5Oj-99-Wo4"/>
             </connections>

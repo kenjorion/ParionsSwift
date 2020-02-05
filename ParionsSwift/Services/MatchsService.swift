@@ -76,9 +76,7 @@ class MatchsServices {
                         
                 }
                 let newBet = Bet(name: name, teamA: teamA, teamB: teamB, oddA: oddA, oddB: oddB, oddC: oddC)
-                print(newBet)
                 allBets.append(newBet)
-                print("allBets", allBets)
                 if(allBets.count == bets.count) {
                     completion(allBets)
                 }
