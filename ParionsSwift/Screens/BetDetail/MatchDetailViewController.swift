@@ -35,6 +35,7 @@ class MatchDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var scoreB: UILabel!
     @IBOutlet var teamB: UILabel!
     @IBOutlet var availableFund: UILabel!
+    @IBOutlet var fundErrorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,8 @@ class MatchDetailViewController: UIViewController, UITableViewDelegate, UITableV
             self.bets = bets
             self.tableView.reloadData()
         })
+        navigationItem.title = "Make a bet"
+        fundErrorLabel.isHidden = true
         potentialGainLabel.text = "0.00€"
         betTextField.text = "0"
         teamA.text = match.teamA
@@ -119,11 +122,17 @@ class MatchDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func betButtonTapped(_ sender: Any) {
         
         let bet: Double? = Double(self.betTextField.text!)
-        if(UserSingleton.user.availableFund - bet! > 0){
-            BetService.default.newBet(matchID: match.id, selectedBets: selectedBets, betAmount: bet!)
+        if(UserSingleton.user.availableFund - bet! >= 0){
+            BetService.default.newBet(matchID: match.id, selectedBets: selectedBets, betAmount: bet!, completion: { betID in UserSingleton.bets.append(betID)
+            })
             UserSingleton.user.availableFund -= bet!
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            self.fundErrorLabel.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                self.fundErrorLabel.isHidden = true
+            }
         }
-        self.navigationController?.popViewController(animated: true)
     }
     
 }

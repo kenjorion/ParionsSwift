@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let cellIdentifier = "cell"
     @IBOutlet weak var tableView: UITableView!
-    var matchs = [Match]()
+    var matchs: [Match] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,19 +21,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MatchTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         let wallet = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(navigateToWallet))
-        navigationItem.rightBarButtonItems = [wallet]
+        let activeBets = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(navigateToActiveBets))
+        navigationItem.title = "Parions Swift"
+        navigationItem.rightBarButtonItems = [wallet, activeBets]
         MatchsServices.shared.listenForNewMatchs { matchs in
             self.matchs = matchs
             self.tableView.reloadData()
         }
-        
-        print(UserSingleton.user.username)
     }
     
     @objc func navigateToWallet () {
         let next = WalletViewController()
         self.navigationController?.pushViewController(next, animated: true)
-        
+    }
+    
+    @objc func navigateToActiveBets(){
+        BetService.default.getActiveBets(activeBets: UserSingleton.bets) { activeBets in
+            let next = ActiveBetsViewController()
+            next.activeBets = activeBets
+            self.navigationController?.pushViewController(next, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,7 +72,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let next = MatchDetailViewController()
         next.match = matchs[indexPath.row]
-        self.navigationController?.pushViewController(next, animated: true)
+        if(matchs[indexPath.row].id.count > 0){
+            self.navigationController?.pushViewController(next, animated: true)
+        }
     }
     
 }

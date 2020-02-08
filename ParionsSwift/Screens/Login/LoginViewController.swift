@@ -21,12 +21,26 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
 
     @IBAction func loginButton(_ sender: Any) {
         LoginService.default.login(username: usernameTextField.text!, password: passwordTextField.text!) { user in
             
             if(user.id.count > 0){
+                let newMatch = Match(id: "", teamA: "...", teamB: "...", scoreA: 0, scoreB: 0, oddA: 1.0, oddB: 1.0, oddC: 1.0, duration: 0, stateMatch: 0, result: 5)
+                let matchs = [newMatch, newMatch, newMatch]
                 let hvc = HomeViewController()
+                hvc.matchs = matchs
                 let navigationController = UINavigationController(rootViewController: hvc)
                 let w = UIWindow(frame: UIScreen.main.bounds)
                 w.rootViewController = navigationController

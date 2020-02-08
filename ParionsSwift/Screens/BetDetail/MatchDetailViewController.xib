@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="availableFund" destination="mTa-KA-erv" id="s8v-sc-yqY"/>
                 <outlet property="betTextField" destination="Px1-NM-7dY" id="IEs-xk-VRy"/>
+                <outlet property="fundErrorLabel" destination="2a4-sR-AAp" id="w8m-2k-uSQ"/>
                 <outlet property="potentialGainLabel" destination="eC7-38-Pte" id="KuU-o1-1ED"/>
                 <outlet property="scoreA" destination="M33-AZ-AGd" id="eHf-Dm-puE"/>
                 <outlet property="scoreB" destination="AzL-c4-baV" id="9Lc-bU-UfN"/>
@@ -140,6 +141,12 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have enough in your wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a4-sR-AAp">
+                            <rect key="frame" x="231" y="38" width="169" height="14"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                            <color key="textColor" red="0.80339216319999995" green="0.025767878899999999" blue="0.019356906189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -148,6 +155,8 @@
                         <constraint firstItem="JuT-aU-OGB" firstAttribute="top" secondItem="KAf-uQ-59G" secondAttribute="top" constant="14" id="65Y-Mn-XXY"/>
                         <constraint firstItem="FzU-Un-mpm" firstAttribute="top" secondItem="eC7-38-Pte" secondAttribute="bottom" constant="12" id="6Vl-1z-5zs"/>
                         <constraint firstItem="TsK-g8-UG3" firstAttribute="top" secondItem="Px1-NM-7dY" secondAttribute="bottom" constant="40" id="8nS-9t-fER"/>
+                        <constraint firstItem="2a4-sR-AAp" firstAttribute="top" secondItem="mTa-KA-erv" secondAttribute="bottom" id="AD5-1c-Ldp"/>
+                        <constraint firstAttribute="trailing" secondItem="2a4-sR-AAp" secondAttribute="trailing" constant="14" id="B0t-i9-2mc"/>
                         <constraint firstAttribute="trailing" secondItem="Px1-NM-7dY" secondAttribute="trailing" constant="14" id="HBN-ts-gV8"/>
                         <constraint firstItem="Px1-NM-7dY" firstAttribute="top" secondItem="KAf-uQ-59G" secondAttribute="top" constant="73" id="I53-30-Qc4"/>
                         <constraint firstItem="Px1-NM-7dY" firstAttribute="leading" secondItem="FzU-Un-mpm" secondAttribute="trailing" constant="10" id="YXB-J4-zqI"/>

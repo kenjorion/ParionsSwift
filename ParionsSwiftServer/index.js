@@ -36,6 +36,6 @@ if (process.env.NODE_ENV === "production") {
 
 server.listen(PORT, err => {
 	if (err) throw err;
-	SocketIO.start(server);
+	SocketIO.start(server, db);
 	console.log(`Server started and listening the port ${PORT} !`);
 });

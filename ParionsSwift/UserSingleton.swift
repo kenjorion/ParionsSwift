@@ -12,5 +12,6 @@ import Foundation
 struct UserSingleton {
     
     static var user: User!
+    static var bets: [String] = []
 
 }

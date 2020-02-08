@@ -39,13 +39,14 @@ class MatchsServices {
                 let oddA = match["oddA"] as? Double,
                 let oddB = match["oddB"] as? Double,
                 let oddC = match["oddC"] as? Double,
-                let duration = match["duration"] as? Int
+                let duration = match["duration"] as? Int,
+                let stateMatch = match["duration"] as? Int,
+                let result = match["result"] as? Int
                 else {
                     return
-                    
                 }
                 
-                let newMatch = Match(id: id, teamA: teamA, teamB: teamB, scoreA: scoreA, scoreB: scoreB, oddA: oddA, oddB: oddB, oddC: oddC, duration: duration)
+                let newMatch = Match(id: id, teamA: teamA, teamB: teamB, scoreA: scoreA, scoreB: scoreB, oddA: oddA, oddB: oddB, oddC: oddC, duration: duration, stateMatch: stateMatch, result: result)
                 allMatchs.append(newMatch)
                 if(allMatchs.count == matchs.count) {
                     completion(allMatchs)
@@ -53,6 +54,7 @@ class MatchsServices {
         
             })
             if(matchs.count == 0){
+
                 completion([])
             }
             
@@ -81,12 +83,51 @@ class MatchsServices {
                 if(allBets.count == bets.count) {
                     completion(allBets)
                 }
-                
             })
             if(allBets.count == 0){
                 completion([])
             }
-            
+        }
+    }
+    
+    func getMatchsByID(activeBets: [ActiveBet], completion: @escaping (_ bets: [Match]) ->  Void){
+        let matchActiveIndex = activeBets.map { res in
+            return [
+                "id": res.matchID
+            ]}
+        
+        socket.emit("getMatchsByID", matchActiveIndex);
+        socket.on("receiveMatchsByID") {data, _ in
+            var allMatchs = [Match]()
+            guard let matchs = data[0] as? [[String: Any]] else { return }
+            matchs.forEach({ match in
+                guard
+                let id = match["id"] as? String,
+                let teamA = match["teamA"] as? String,
+                let teamB = match["teamB"] as? String,
+                let scoreA = match["scoreA"] as? Int,
+                let scoreB = match["scoreB"] as? Int,
+                let oddA = match["oddA"] as? Double,
+                let oddB = match["oddB"] as? Double,
+                let oddC = match["oddC"] as? Double,
+                let duration = match["duration"] as? Int,
+                let stateMatch = match["stateMatch"] as? Int,
+                let result = match["result"] as? Int
+                else {
+                    return
+                }
+                
+                let newMatch = Match(id: id, teamA: teamA, teamB: teamB, scoreA: scoreA, scoreB: scoreB, oddA: oddA, oddB: oddB, oddC: oddC, duration: duration, stateMatch: stateMatch, result: result)
+                allMatchs.append(newMatch)
+                if(allMatchs.count == matchs.count) {
+                    completion(allMatchs)
+                }
+                
+            })
+            if(matchs.count == 0){
+                
+                completion([])
+            }
         }
     }
     

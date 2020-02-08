@@ -20,6 +20,11 @@
 		F979D7D523EB3BFD00848D66 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D7D423EB3BFD00848D66 /* User.swift */; };
 		F979D7D723EB423C00848D66 /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D7D623EB423C00848D66 /* UserSingleton.swift */; };
 		F979D7D923EB5A9500848D66 /* BetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D7D823EB5A9500848D66 /* BetService.swift */; };
+		F979D7DD23EC538600848D66 /* ActiveBetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D7DB23EC538600848D66 /* ActiveBetsViewController.swift */; };
+		F979D7DE23EC538600848D66 /* ActiveBetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F979D7DC23EC538600848D66 /* ActiveBetsViewController.xib */; };
+		F979D7E023EC74D500848D66 /* ActiveBet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D7DF23EC74D500848D66 /* ActiveBet.swift */; };
+		F979D7E323EC7CE100848D66 /* ActiveBetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F979D7E123EC7CE100848D66 /* ActiveBetTableViewCell.swift */; };
+		F979D7E423EC7CE100848D66 /* ActiveBetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F979D7E223EC7CE100848D66 /* ActiveBetTableViewCell.xib */; };
 		F9B02C7723BF880B00C1255E /* MatchsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B02C7623BF880B00C1255E /* MatchsService.swift */; };
 		F9B02C7A23BF952F00C1255E /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B02C7823BF952F00C1255E /* MatchTableViewCell.swift */; };
 		F9B02C7B23BF952F00C1255E /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */; };
@@ -74,6 +79,11 @@
 		F979D7D423EB3BFD00848D66 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F979D7D623EB423C00848D66 /* UserSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		F979D7D823EB5A9500848D66 /* BetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetService.swift; sourceTree = "<group>"; };
+		F979D7DB23EC538600848D66 /* ActiveBetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveBetsViewController.swift; sourceTree = "<group>"; };
+		F979D7DC23EC538600848D66 /* ActiveBetsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveBetsViewController.xib; sourceTree = "<group>"; };
+		F979D7DF23EC74D500848D66 /* ActiveBet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveBet.swift; sourceTree = "<group>"; };
+		F979D7E123EC7CE100848D66 /* ActiveBetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveBetTableViewCell.swift; sourceTree = "<group>"; };
+		F979D7E223EC7CE100848D66 /* ActiveBetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveBetTableViewCell.xib; sourceTree = "<group>"; };
 		F9B02C7623BF880B00C1255E /* MatchsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchsService.swift; sourceTree = "<group>"; };
 		F9B02C7823BF952F00C1255E /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		F9B02C7923BF952F00C1255E /* MatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
@@ -196,6 +206,17 @@
 			path = Wallet;
 			sourceTree = "<group>";
 		};
+		F979D7DA23EC536B00848D66 /* ActiveBets */ = {
+			isa = PBXGroup;
+			children = (
+				F979D7DB23EC538600848D66 /* ActiveBetsViewController.swift */,
+				F979D7DC23EC538600848D66 /* ActiveBetsViewController.xib */,
+				F979D7E123EC7CE100848D66 /* ActiveBetTableViewCell.swift */,
+				F979D7E223EC7CE100848D66 /* ActiveBetTableViewCell.xib */,
+			);
+			path = ActiveBets;
+			sourceTree = "<group>";
+		};
 		F9B02C7523BF87F300C1255E /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +230,7 @@
 		F9B02C7C23BFA17900C1255E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F979D7DA23EC536B00848D66 /* ActiveBets */,
 				F974E5E223E9FAE70096508D /* Wallet */,
 				F974E5E123E9FAD70096508D /* Login */,
 				F974E5E023E9FAC20096508D /* BetDetail */,
@@ -279,6 +301,7 @@
 				F979D7D423EB3BFD00848D66 /* User.swift */,
 				F9E2838423AAAB4700FC83E2 /* Match.swift */,
 				F974E5E323E9FE1F0096508D /* Bet.swift */,
+				F979D7DF23EC74D500848D66 /* ActiveBet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -397,6 +420,8 @@
 				F974E5DE23E9FAAD0096508D /* BetTableViewCell.xib in Resources */,
 				F9E2837B23AA9B9300FC83E2 /* HomeViewController.xib in Resources */,
 				F9B02C7B23BF952F00C1255E /* MatchTableViewCell.xib in Resources */,
+				F979D7E423EC7CE100848D66 /* ActiveBetTableViewCell.xib in Resources */,
+				F979D7DE23EC538600848D66 /* ActiveBetsViewController.xib in Resources */,
 				F9B02C8123BFA1D600C1255E /* MatchDetailViewController.xib in Resources */,
 				F974E5D323E9E7860096508D /* LoginViewController.xib in Resources */,
 				F9B02C8523C4882B00C1255E /* WalletViewController.xib in Resources */,
@@ -529,9 +554,12 @@
 			files = (
 				F979D7D523EB3BFD00848D66 /* User.swift in Sources */,
 				F9E2833C23AA9A1A00FC83E2 /* AppDelegate.swift in Sources */,
+				F979D7DD23EC538600848D66 /* ActiveBetsViewController.swift in Sources */,
 				F9B02C7723BF880B00C1255E /* MatchsService.swift in Sources */,
 				F9B02C8423C4882B00C1255E /* WalletViewController.swift in Sources */,
 				F979D7D923EB5A9500848D66 /* BetService.swift in Sources */,
+				F979D7E023EC74D500848D66 /* ActiveBet.swift in Sources */,
+				F979D7E323EC7CE100848D66 /* ActiveBetTableViewCell.swift in Sources */,
 				F979D7D723EB423C00848D66 /* UserSingleton.swift in Sources */,
 				F9B02C7A23BF952F00C1255E /* MatchTableViewCell.swift in Sources */,
 				F974E5D723E9EC540096508D /* LoginService.swift in Sources */,

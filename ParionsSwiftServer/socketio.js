@@ -1,88 +1,29 @@
 import io from "socket.io";
+import Firebase from 'firebase';
 
-const randomIntFromInterval =(min, max) => { // min and max included
+const randomIntFromInterval = (min, max) => { // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 
-const mockActiveMatchs = [
-  {
-    id: 'm123456',
-    sport: 'football',
-    category: 'champions_league',
-    teamA: 'PSG',
-    teamB: 'OL',
-    scoreA: 0,
-    scoreB: 0,
-    rwA: 8, 
-    rwB: 2, 
-    cwA: 4, 
-    cwB: 3, 
-    hwA: 5, 
-    awB: 2,
-    oddA : algoA(8, 4, 5),
-    oddB : algoB(2, 3, 2),
-    oddC: algoC(8, 4, 5, 2, 3, 2),
-    duration: 0,
-    bets: [
-      {
-        name: "1 N 2 - Live 90 Mins",
-        teamA: 'PSG',
-        teamB: 'OL',
-        oddA : algoA(8, 4, 5),
-        oddB : algoB(2, 3, 2),
-        oddC: algoC(8, 4, 5, 2, 3, 2),
-      },
-      {
-        name: "1 N 2 - Live Mi-temps",
-        teamA: 'PSG',
-        teamB: 'OL',
-        oddA : algoA(8, 4, 5),
-        oddB : algoB(2, 3, 2),
-        oddC: algoC(8, 4, 5, 2, 3, 2),
-      }
-    ]
-  },
-  {
-    id: 'm12345',
-    sport: 'football',
-    category: 'champions_league',
-    teamA: 'OM',
-    teamB: 'FCB',
-    scoreA: 0,
-    scoreB: 0,
-    oddA: 1.5,
-    oddB: 2,
-    oddC: 4,
-    duration: 0,
-    bets: [
-      {
-        name: "1 N 2 - Live 90 Mins",
-        teamA: 'PSG',
-        teamB: 'OL',
-        oddA : algoA(8, 4, 5),
-        oddB : algoB(2, 3, 2),
-        oddC: algoC(8, 4, 5, 2, 3, 2),
-      },
-      {
-        name: "1 N 2 - Live Mi-temps",
-        teamA: 'PSG',
-        teamB: 'OL',
-        oddA : algoA(8, 4, 5),
-        oddB : algoB(2, 3, 2),
-        oddC: algoC(8, 4, 5, 2, 3, 2),
-      }
-    ]
-  }
-];
 
 const randomMatch = () => {
-  mockActiveMatchs.forEach(match => {
+  const updatedMatch = allMatchs.map(match => {
     const random = randomIntFromInterval(0, 100);
     match.duration += 5;
-    if(random < 3){
+    if(match.duration > 60){
+      match.stateMatch = true
+      if(match.scoreA > match.scoreB){
+        match.result = 0;
+      } else if(match.scoreA === match.scoreB){
+        match.result = 1;
+      } else {
+        match.result = 2;
+      }
+    }
+    if(random < 60){
       if(random%2 === 0){
-        if (match.scoreA - match.scoreB == 1 || match.scoreB - match.scoreA ==1) { 
+        if (match.scoreA - match.scoreB === 1 || match.scoreB - match.scoreA === 1) { 
           match.oddC += 1;
         }
         match.scoreA += 1;
@@ -90,14 +31,14 @@ const randomMatch = () => {
         match.oddA = Math.round(match.oddA*100)/100;
         match.oddB += 0.3;
         match.oddB = Math.round(match.oddB*100)/100; 
-        if ( match.oddA <= 1 ) 
+        if (match.oddA <= 1){ 
           match.oddA = 1.1; 
-        return true;
+        }
       } else {
         if (match.scoreA === match.scoreB && match.scoreA >= 1 && match.duration < 50) { 
           match.oddC -= 1;
         }
-        else if (match.scoreA - match.scoreB == 2 || match.scoreB - match.scoreA ==2) { 
+        else if (match.scoreA - match.scoreB === 2 || match.scoreB - match.scoreA === 2) { 
           match.oddC += 1;
         }
         match.scoreB += 1;
@@ -105,37 +46,73 @@ const randomMatch = () => {
         match.oddB = Math.round(match.oddB*100)/100;
         match.oddA += 0.3;
         match.oddA = Math.round(match.oddA*100)/100;
-        if ( match.oddB <= 1 ) 
+        if ( match.oddB <= 1){ 
           match.oddB = 1.1; 
-        return true;
+        }
       }
     }
-    while (match.scoreA === match.scoreB && match.scoreA >= 1) { 
-      match.oddC -= 1;
-    }
-    return false;
+    return match;
   });
+  return updatedMatch;
 };
+
+const fetchNewMatch = async (db) => {
+  var allMatchs = [];
+  await db.collection("matchs").get().then(matchs => {
+    matchs.forEach(match => {
+      const { rwA, cwA, hwA, rwB, cwB, awB} = match.data(); 
+      var m = match.data();
+      m.id = match.id;
+      m.oddA = algoA(rwA, cwA, hwA);
+      m.oddB = algoB(rwB, cwB, awB);
+      m.oddC = algoC(rwB, cwA, hwA, rwB, cwB, awB);
+      m.bets.forEach(bet => {
+        bet.oddA = algoA(rwA, cwA, hwA);
+        bet.oddB = algoB(rwB, cwB, awB);
+        bet.oddC = algoC(rwB, cwA, hwA, rwB, cwB, awB);
+      });
+      allMatchs.push(m);
+    });
+  });
+  return allMatchs;
+};
+
+let allMatchs = [];
+
 let SocketIO = {
-  start: server => {
+  start: async (server, db) => {
     const ioServer = io(server);
+    allMatchs = await fetchNewMatch(db);
+    setInterval(async () => {
+      randomMatch().forEach(match => {
+        db.collection("matchs").doc(match.id).update(match);
+      });
+      allMatchs = await fetchNewMatch(db);
+    }, 5000);
 
     ioServer.on('connect', socket => {
+      socket.emit('getActiveMatchs', allMatchs);
       setInterval(() => {
-        randomMatch();
-      }, 5000);
-      setInterval(() => {
-        socket.emit('getActiveMatchs', mockActiveMatchs);
+        socket.emit('getActiveMatchs', allMatchs);
       }, 5000);
 
       socket.on('getBetsByID', matchID => {
-        const match = mockActiveMatchs.find(match => match.id === matchID);
-        console.log(match.bets);
+        const match = allMatchs.find(match => match.id === matchID);
+        socket.emit('receiveBetsByID', match.bets);
         setInterval(() => {
           socket.emit('receiveBetsByID', match.bets);
         }, 5000);
       });
 
+      socket.on('getMatchsByID', matchsID => {
+
+        const matchs = matchsID.map(match => allMatchs.find(foundMatch => foundMatch.id === match.id));
+        console.log(matchs);
+        socket.emit('receiveMatchsByID', matchs);
+        setInterval(() => {
+          socket.emit('receiveMatchsByID', matchs);
+        }, 5000);
+      });
     });
 
 

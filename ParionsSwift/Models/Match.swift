@@ -20,8 +20,10 @@ public class Match {
     var oddB: Double
     var oddC: Double
     var duration: Int
+    var stateMatch: Int
+    var result: Int
     
-    init(id: String, teamA: String, teamB: String, scoreA: Int, scoreB: Int, oddA: Double, oddB: Double, oddC: Double, duration: Int) {
+    init(id: String, teamA: String, teamB: String, scoreA: Int, scoreB: Int, oddA: Double, oddB: Double, oddC: Double, duration: Int, stateMatch: Int, result: Int) {
         self.id = id
         self.teamA = teamA
         self.teamB = teamB
@@ -31,5 +33,7 @@ public class Match {
         self.oddB = oddB
         self.oddC = oddC
         self.duration = duration
+        self.stateMatch = stateMatch
+        self.result = result
     }
 }
