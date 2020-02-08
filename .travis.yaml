@@ -6,6 +6,11 @@ branches:
     - master
 notifications:
   email: false
-script: echo "cool?"
+script:
+- fastlane scan 
+
+
+
+
 
 
