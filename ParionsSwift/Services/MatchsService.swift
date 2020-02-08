@@ -12,7 +12,7 @@ import SocketIO
 class MatchsServices {
 
     static let shared = MatchsServices()
-    let manager = SocketManager(socketURL: URL(string: "http://localhost:8080")!, config: [.log(false), .forceWebsockets(true), .compress])
+    let manager = SocketManager(socketURL: URL(string: "https://parions-swift.herokuapp.com")!, config: [.log(false), .forceWebsockets(true), .compress])
     var socket:SocketIOClient!
 
     func connect(){

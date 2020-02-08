@@ -17,7 +17,7 @@ public class LoginService {
         
         let parameters: Parameters = ["username": username, "password": password]
         
-        Alamofire.request("http://localhost:8080/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (res) in
+        Alamofire.request("https://parions-swift.herokuapp.com/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (res) in
             guard let json = res.result.value as? [String: Any],
             let id = json["id"] as? String,
             let username = json["username"] as? String,

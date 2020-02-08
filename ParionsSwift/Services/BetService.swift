@@ -29,7 +29,7 @@ public class BetService {
         
         let parameters: Parameters = ["matchID": matchID, "bets": bets, "betAmount": betAmount, "userID": UserSingleton.user.id]
         
-        Alamofire.request("http://localhost:8080/bets/new", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (res) in
+        Alamofire.request("https://parions-swift.herokuapp.com/bets/new", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (res) in
             guard let json = res.result.value as? [String: Any],
             let id = json["id"] as? String
             else {
@@ -43,7 +43,7 @@ public class BetService {
     public func creditFundUser(amount: Double){
         
         let parameters: Parameters = ["amount": amount, "userID": UserSingleton.user.id]
-        Alamofire.request("http://localhost:8080/bets/credit", method: .post, parameters: parameters, encoding: JSONEncoding.default);
+        Alamofire.request("https://parions-swift.herokuapp.com/bets/credit", method: .post, parameters: parameters, encoding: JSONEncoding.default);
     }
     
     
@@ -53,7 +53,7 @@ public class BetService {
         
         let parameters: Parameters = ["betsID": betsID]
         
-        Alamofire.request("http://localhost:8080/bets/activeBets", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (res) in
+        Alamofire.request("https://parions-swift.herokuapp.com/bets/activeBets", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (res) in
             var allActiveBets = [ActiveBet]()
             guard let activeBets = res.result.value as? [[String: Any]] else { return }
             
