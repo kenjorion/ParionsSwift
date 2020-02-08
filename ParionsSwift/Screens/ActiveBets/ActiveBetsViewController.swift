@@ -28,15 +28,27 @@ class ActiveBetsViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParent {
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activeBets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActiveBetTableViewCell
-        print(indexPath.row)
         cell.betAmount.text = String(format: "%.2f", activeBets[indexPath.row].betAmount) + "€"
         cell.potentialGain.text = String(format: "%.2f", activeBets[indexPath.row].totalGain) + "€"
+        if(matchs.count > 0 &&  matchs.count == activeBets.count){
+            cell.duration.text = String(Int(matchs[indexPath.row].duration/60)) + " min"
+            cell.scoreA.text = String(matchs[indexPath.row].scoreA)
+            cell.scoreB.text = String(matchs[indexPath.row].scoreB)
+        }
         if(matchs.count > 0 &&  matchs.count == activeBets.count &&  matchs[indexPath.row].stateMatch == 1){
             let result = checkBetIndex(selectedBets: activeBets[indexPath.row].selectedBets)
             switch result {

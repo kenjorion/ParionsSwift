@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SocketIO
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     

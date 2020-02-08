@@ -11,6 +11,9 @@ import UIKit
 class ActiveBetTableViewCell: UITableViewCell {
 
     
+    @IBOutlet var duration: UILabel!
+    @IBOutlet var scoreA: UILabel!
+    @IBOutlet var scoreB: UILabel!
     @IBOutlet var teamA: UILabel!
     @IBOutlet var teamB: UILabel!
     @IBOutlet var betAmount: UILabel!

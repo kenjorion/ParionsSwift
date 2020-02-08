@@ -28,6 +28,15 @@
                         <color key="textColor" red="0.80339216319999995" green="0.025767878899999999" blue="0.019356906189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbg-fD-CbE">
+                        <rect key="frame" x="130" y="10" width="30" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="XLy-ox-UlP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                        <color key="textColor" red="0.80339216319999995" green="0.025767878899999999" blue="0.019356906189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pip-j5-LjN">
                         <rect key="frame" x="20" y="49" width="140" height="21"/>
                         <color key="backgroundColor" red="0.80339216319999995" green="0.025767878899999999" blue="0.019356906189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -85,20 +94,44 @@
                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzX-tQ-Xpq">
+                        <rect key="frame" x="203" y="10" width="30" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="9Cd-i9-Jbx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                        <color key="textColor" red="0.15429557529999999" green="0.15136366109999999" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ely-of-Ed8">
+                        <rect key="frame" x="303" y="12" width="55" height="16.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="VlP-9v-buh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" red="0.87532383420000004" green="0.87532383420000004" blue="0.87532383420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="qfl-h1-EDC" secondAttribute="bottom" constant="10.5" id="48V-YO-jmI"/>
+                    <constraint firstItem="Ely-of-Ed8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="4GS-BQ-cFk"/>
+                    <constraint firstItem="Zbg-fD-CbE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="130" id="8xv-Td-5jS"/>
                     <constraint firstItem="qfl-h1-EDC" firstAttribute="top" secondItem="XlL-4s-f8K" secondAttribute="bottom" constant="14.5" id="FcI-V9-Zqo"/>
                     <constraint firstItem="TbO-ku-Tu8" firstAttribute="top" secondItem="mXV-6P-xQ1" secondAttribute="bottom" constant="15" id="GbN-xj-Fwn"/>
                     <constraint firstItem="IuZ-gy-xUi" firstAttribute="top" secondItem="TbO-ku-Tu8" secondAttribute="bottom" id="HZx-SA-IcY"/>
+                    <constraint firstAttribute="trailing" secondItem="Ely-of-Ed8" secondAttribute="trailing" constant="5" id="M0K-ya-X5g"/>
                     <constraint firstItem="KGI-X2-58c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="NaI-uv-ZQG"/>
                     <constraint firstItem="pip-j5-LjN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Seb-LR-jjG"/>
+                    <constraint firstItem="bzX-tQ-Xpq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="UVC-8t-hy1"/>
+                    <constraint firstItem="Zbg-fD-CbE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="V9w-Eq-g4K"/>
                     <constraint firstAttribute="trailing" secondItem="qfl-h1-EDC" secondAttribute="trailing" constant="130" id="VpW-AI-l5w"/>
                     <constraint firstAttribute="trailing" secondItem="mXV-6P-xQ1" secondAttribute="trailing" constant="20" id="Vva-jy-G2I"/>
                     <constraint firstItem="qfl-h1-EDC" firstAttribute="top" secondItem="IuZ-gy-xUi" secondAttribute="bottom" constant="14.5" id="WdP-5R-wsL"/>
                     <constraint firstItem="KGI-X2-58c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ecq-6x-D5Y"/>
                     <constraint firstItem="mXV-6P-xQ1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="h28-LT-cEL"/>
+                    <constraint firstAttribute="trailing" secondItem="bzX-tQ-Xpq" secondAttribute="trailing" constant="130" id="hUC-7U-VXy"/>
                     <constraint firstItem="XlL-4s-f8K" firstAttribute="top" secondItem="pip-j5-LjN" secondAttribute="bottom" id="iaF-T1-7Wf"/>
                     <constraint firstItem="qfl-h1-EDC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="130" id="j8l-4J-Wla"/>
                     <constraint firstItem="XlL-4s-f8K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="l78-Qe-RQH"/>
@@ -110,8 +143,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="betAmount" destination="XlL-4s-f8K" id="pbI-6k-fgH"/>
+                <outlet property="duration" destination="Ely-of-Ed8" id="0jL-Ge-UIY"/>
                 <outlet property="potentialGain" destination="IuZ-gy-xUi" id="W0w-Ri-eID"/>
                 <outlet property="result" destination="qfl-h1-EDC" id="DTc-fc-syJ"/>
+                <outlet property="scoreA" destination="Zbg-fD-CbE" id="dwb-Ph-0TV"/>
+                <outlet property="scoreB" destination="bzX-tQ-Xpq" id="VQQ-fB-dEI"/>
                 <outlet property="teamA" destination="KGI-X2-58c" id="Z7u-ve-nXi"/>
                 <outlet property="teamB" destination="mXV-6P-xQ1" id="Iub-g7-QAm"/>
             </connections>

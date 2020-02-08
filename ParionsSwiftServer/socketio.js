@@ -6,12 +6,13 @@ const randomIntFromInterval = (min, max) => { // min and max included
 };
 
 
+const DURATION_MATCH = 60;
+const GOAL_RANDOM = 60;
 
 const randomMatch = () => {
   const updatedMatch = allMatchs.map(match => {
     const random = randomIntFromInterval(0, 100);
-    match.duration += 5;
-    if(match.duration > 60){
+    if(match.duration > DURATION_MATCH){
       match.stateMatch = true
       if(match.scoreA > match.scoreB){
         match.result = 0;
@@ -20,34 +21,36 @@ const randomMatch = () => {
       } else {
         match.result = 2;
       }
-    }
-    if(random < 60){
-      if(random%2 === 0){
-        if (match.scoreA - match.scoreB === 1 || match.scoreB - match.scoreA === 1) { 
-          match.oddC += 1;
-        }
-        match.scoreA += 1;
-        match.oddA -= 0.2 
-        match.oddA = Math.round(match.oddA*100)/100;
-        match.oddB += 0.3;
-        match.oddB = Math.round(match.oddB*100)/100; 
-        if (match.oddA <= 1){ 
-          match.oddA = 1.1; 
-        }
-      } else {
-        if (match.scoreA === match.scoreB && match.scoreA >= 1 && match.duration < 50) { 
-          match.oddC -= 1;
-        }
-        else if (match.scoreA - match.scoreB === 2 || match.scoreB - match.scoreA === 2) { 
-          match.oddC += 1;
-        }
-        match.scoreB += 1;
-        match.oddB -= 0.2; 
-        match.oddB = Math.round(match.oddB*100)/100;
-        match.oddA += 0.3;
-        match.oddA = Math.round(match.oddA*100)/100;
-        if ( match.oddB <= 1){ 
-          match.oddB = 1.1; 
+    } else {
+      match.duration += 5;
+      if(random < GOAL_RANDOM){
+        if(random%2 === 0){
+          if (match.scoreA - match.scoreB === 1 || match.scoreB - match.scoreA === 1) { 
+            match.oddC += 1;
+          }
+          match.scoreA += 1;
+          match.oddA -= 0.2 
+          match.oddA = Math.round(match.oddA*100)/100;
+          match.oddB += 0.3;
+          match.oddB = Math.round(match.oddB*100)/100; 
+          if (match.oddA <= 1){ 
+            match.oddA = 1.1; 
+          }
+        } else {
+          if (match.scoreA === match.scoreB && match.scoreA >= 1 && match.duration < 50) { 
+            match.oddC -= 1;
+          }
+          else if (match.scoreA - match.scoreB === 2 || match.scoreB - match.scoreA === 2) { 
+            match.oddC += 1;
+          }
+          match.scoreB += 1;
+          match.oddB -= 0.2; 
+          match.oddB = Math.round(match.oddB*100)/100;
+          match.oddA += 0.3;
+          match.oddA = Math.round(match.oddA*100)/100;
+          if ( match.oddB <= 1){ 
+            match.oddB = 1.1; 
+          }
         }
       }
     }
@@ -105,11 +108,10 @@ let SocketIO = {
       });
 
       socket.on('getMatchsByID', matchsID => {
-
         const matchs = matchsID.map(match => allMatchs.find(foundMatch => foundMatch.id === match.id));
-        console.log(matchs);
         socket.emit('receiveMatchsByID', matchs);
         setInterval(() => {
+          const matchs = matchsID.map(match => allMatchs.find(foundMatch => foundMatch.id === match.id));
           socket.emit('receiveMatchsByID', matchs);
         }, 5000);
       });

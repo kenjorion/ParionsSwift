@@ -92,10 +92,9 @@ class MatchsServices {
     
     func getMatchsByID(activeBets: [ActiveBet], completion: @escaping (_ bets: [Match]) ->  Void){
         let matchActiveIndex = activeBets.map { res in
-            return [
-                "id": res.matchID
-            ]}
-        
+        return [
+            "id": res.matchID
+        ]}
         socket.emit("getMatchsByID", matchActiveIndex);
         socket.on("receiveMatchsByID") {data, _ in
             var allMatchs = [Match]()
@@ -118,6 +117,7 @@ class MatchsServices {
                 }
                 
                 let newMatch = Match(id: id, teamA: teamA, teamB: teamB, scoreA: scoreA, scoreB: scoreB, oddA: oddA, oddB: oddB, oddC: oddC, duration: duration, stateMatch: stateMatch, result: result)
+                print(newMatch.duration)
                 allMatchs.append(newMatch)
                 if(allMatchs.count == matchs.count) {
                     completion(allMatchs)
