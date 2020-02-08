@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchDetailViewController" customModule="ParionsSwift" customModuleProvider="target">
             <connections>
                 <outlet property="availableFund" destination="mTa-KA-erv" id="s8v-sc-yqY"/>
+                <outlet property="betAmountError" destination="d1P-gf-DEs" id="8bg-75-gzR"/>
                 <outlet property="betTextField" destination="Px1-NM-7dY" id="IEs-xk-VRy"/>
                 <outlet property="fundErrorLabel" destination="2a4-sR-AAp" id="w8m-2k-uSQ"/>
                 <outlet property="potentialGainLabel" destination="eC7-38-Pte" id="KuU-o1-1ED"/>
@@ -147,9 +148,20 @@
                             <color key="textColor" red="0.80339216319999995" green="0.025767878899999999" blue="0.019356906189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can not bet less than 1€" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1P-gf-DEs">
+                            <rect key="frame" x="114" y="111" width="128" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="128" id="IKG-Kx-mZ6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                            <color key="textColor" red="0.80339216319999995" green="0.025767878899999999" blue="0.019356906189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="d1P-gf-DEs" firstAttribute="top" secondItem="Px1-NM-7dY" secondAttribute="bottom" constant="8" id="0Ol-gT-Mm0"/>
+                        <constraint firstItem="d1P-gf-DEs" firstAttribute="leading" secondItem="KAf-uQ-59G" secondAttribute="leading" constant="114" id="1wT-5p-f9u"/>
                         <constraint firstItem="mTa-KA-erv" firstAttribute="top" secondItem="KAf-uQ-59G" secondAttribute="top" constant="14" id="30c-zq-afO"/>
                         <constraint firstItem="eC7-38-Pte" firstAttribute="top" secondItem="JuT-aU-OGB" secondAttribute="bottom" constant="8" id="34A-Rd-JDV"/>
                         <constraint firstItem="JuT-aU-OGB" firstAttribute="top" secondItem="KAf-uQ-59G" secondAttribute="top" constant="14" id="65Y-Mn-XXY"/>

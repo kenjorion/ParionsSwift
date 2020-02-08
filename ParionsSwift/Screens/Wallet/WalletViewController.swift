@@ -11,31 +11,40 @@ import Stripe
 
 class WalletViewController: UIViewController, STPAddCardViewControllerDelegate {
 
+    @IBOutlet var fundTextField: UITextField!
+    @IBOutlet var availableFund: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        availableFund.text = String(format: "%.2f", UserSingleton.user.availableFund) + "€"
         // Do any additional setup after loading the view.
     }
     
     
     @IBAction func fundButton(_ sender: Any) {
-        let config = STPPaymentConfiguration.shared()
-        let addCardViewController = STPAddCardViewController(configuration: config, theme: STPTheme.default())
-        addCardViewController.delegate = self
-        let navigationController = UINavigationController(rootViewController: addCardViewController)
-        present(navigationController, animated: true, completion: nil)
+        let fund: Double? = Double(self.fundTextField.text!)
+        if(fundTextField.text!.count > 0 && fund! >= 1.0){
+            let config = STPPaymentConfiguration.shared()
+            let addCardViewController = STPAddCardViewController(configuration: config, theme: STPTheme.default())
+            addCardViewController.delegate = self
+            let navigationController = UINavigationController(rootViewController: addCardViewController)
+            present(navigationController, animated: true, completion: nil)
+        }
     }
     
     func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
         dismiss(animated: true)
     }
     
-    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
+    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreatePaymentMethod paymentMethod: STPPaymentMethod, completion: @escaping STPErrorBlock) {
+        let fund: Double? = Double(self.fundTextField.text!)
+        UserSingleton.user.availableFund += fund!
+        availableFund.text = String(UserSingleton.user.availableFund)
+        BetService.default.creditFundUser(amount: fund!)
+        
         dismiss(animated: true)
-        let cardObject = token.allResponseFields["card"]
-        print("Printing Strip Token:\(token.tokenId)")
-       
     }
-    
+
 
     /*
     // MARK: - Navigation

@@ -29,10 +29,16 @@ const randomMatch = () => {
             match.oddC += 1;
           }
           match.scoreA += 1;
-          match.oddA -= 0.2 
+          match.oddA -= 0.2 ;
           match.oddA = Math.round(match.oddA*100)/100;
           match.oddB += 0.3;
           match.oddB = Math.round(match.oddB*100)/100; 
+          match.bets.forEach(bet => {
+            bet.oddA -= 0.2 ;
+            bet.oddA = Math.round(match.oddA*100)/100;
+            bet.oddB += 0.3;
+            bet.oddB = Math.round(match.oddB*100)/100; 
+          });
           if (match.oddA <= 1){ 
             match.oddA = 1.1; 
           }
@@ -48,6 +54,12 @@ const randomMatch = () => {
           match.oddB = Math.round(match.oddB*100)/100;
           match.oddA += 0.3;
           match.oddA = Math.round(match.oddA*100)/100;
+          match.bets.forEach(bet => {
+            bet.oddA -= 0.2 ;
+            bet.oddA = Math.round(match.oddA*100)/100;
+            bet.oddB += 0.3;
+            bet.oddB = Math.round(match.oddB*100)/100; 
+          });
           if ( match.oddB <= 1){ 
             match.oddB = 1.1; 
           }

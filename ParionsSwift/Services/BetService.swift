@@ -40,6 +40,12 @@ public class BetService {
         }
     }
     
+    public func creditFundUser(amount: Double){
+        
+        let parameters: Parameters = ["amount": amount, "userID": UserSingleton.user.id]
+        Alamofire.request("http://localhost:8080/bets/credit", method: .post, parameters: parameters, encoding: JSONEncoding.default);
+    }
+    
     
     public func getActiveBets(activeBets: [String], completion: @escaping ([ActiveBet]) -> Void) {
         

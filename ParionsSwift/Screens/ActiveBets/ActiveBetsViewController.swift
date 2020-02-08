@@ -25,7 +25,6 @@ class ActiveBetsViewController: UIViewController, UITableViewDataSource, UITable
             self.matchs = matchs
             self.tableView.reloadData()
         }
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -55,18 +54,25 @@ class ActiveBetsViewController: UIViewController, UITableViewDataSource, UITable
                 case 0:
                     if(self.matchs[indexPath.row].result == result){
                         cell.result.text = "WON"
+                        UserSingleton.user.availableFund += activeBets[indexPath.row].betAmount
+                        BetService.default.creditFundUser(amount: activeBets[indexPath.row].betAmount)
+                        
                     } else {
                         cell.result.text = "LOST"
                     }
                 case 1:
                     if(self.matchs[indexPath.row].result == result){
                         cell.result.text = "WON"
+                        UserSingleton.user.availableFund += activeBets[indexPath.row].betAmount
+                        BetService.default.creditFundUser(amount: activeBets[indexPath.row].betAmount)
                     } else {
                         cell.result.text = "LOST"
                     }
                 case 2:
                     if(self.matchs[indexPath.row].result == result){
                         cell.result.text = "WON"
+                        UserSingleton.user.availableFund += activeBets[indexPath.row].betAmount
+                        BetService.default.creditFundUser(amount: activeBets[indexPath.row].betAmount)
                     } else {
                         cell.result.text = "LOST"
                     }

@@ -36,6 +36,7 @@ class MatchDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var teamB: UILabel!
     @IBOutlet var availableFund: UILabel!
     @IBOutlet var fundErrorLabel: UILabel!
+    @IBOutlet var betAmountError: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class MatchDetailViewController: UIViewController, UITableViewDelegate, UITableV
         })
         navigationItem.title = "Make a bet"
         fundErrorLabel.isHidden = true
+        betAmountError.isHidden = true
         potentialGainLabel.text = "0.00€"
         betTextField.text = "0"
         teamA.text = match.teamA
@@ -55,9 +57,15 @@ class MatchDetailViewController: UIViewController, UITableViewDelegate, UITableV
         scoreA.text = String(match.scoreA)
         scoreB.text = String(match.scoreB)
         availableFund.text = String(UserSingleton.user.availableFund) + "€ available"
+        betTextField.addTarget(self, action: #selector(MatchDetailViewController.betTextFieldChange(_:)), for: UIControl.Event.editingChanged)
         
     }
     
+    @objc func betTextFieldChange(_ textField: UITextField) {
+        if(betTextField.text!.count > 0){
+            potentialGainLabel.text = String(format: "%.2f", calculPotentialGain()) + "€"
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bets.count
@@ -90,12 +98,16 @@ class MatchDetailViewController: UIViewController, UITableViewDelegate, UITableV
     func oddTapped(at index: IndexPath, oddIndex: Int) {
         selectedBets = selectedBets.filter({ $0.index != index[1] && $0.odd != oddIndex })
         selectedBets.append(SelectedBet(bet: bets[index[1]], index: index[1], odd: oddIndex))
-        potentialGainLabel.text = String(format: "%.2f", calculPotentialGain()) + "€"
+        if(betTextField.text!.count > 0){
+            potentialGainLabel.text = String(format: "%.2f", calculPotentialGain()) + "€"
+        }
     }
     
     func removeOddTapped(at index: IndexPath, oddIndex: Int){
         selectedBets = selectedBets.filter({ $0.bet != bets[index[1]] })
-        potentialGainLabel.text = String(format: "%.2f", calculPotentialGain()) + "€"
+        if(betTextField.text!.count > 0){
+            potentialGainLabel.text = String(format: "%.2f", calculPotentialGain()) + "€"
+        }
     }
     
     func calculPotentialGain() -> Double {
@@ -122,15 +134,22 @@ class MatchDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func betButtonTapped(_ sender: Any) {
         
         let bet: Double? = Double(self.betTextField.text!)
-        if(UserSingleton.user.availableFund - bet! >= 0){
-            BetService.default.newBet(matchID: match.id, selectedBets: selectedBets, betAmount: bet!, completion: { betID in UserSingleton.bets.append(betID)
-            })
-            UserSingleton.user.availableFund -= bet!
-            self.navigationController?.popViewController(animated: true)
+        if(betTextField.text!.count > 0 && selectedBets.count > 0 && bet! >= 1.0){
+            if(UserSingleton.user.availableFund - bet! >= 0){
+                UserSingleton.user.availableFund -= bet!
+                self.navigationController?.popViewController(animated: true)
+                BetService.default.newBet(matchID: match.id, selectedBets: selectedBets, betAmount: bet!, completion: { betID in UserSingleton.bets.append(betID)
+                })
+            } else {
+                self.fundErrorLabel.isHidden = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    self.fundErrorLabel.isHidden = true
+                }
+            }
         } else {
-            self.fundErrorLabel.isHidden = false
+            self.betAmountError.isHidden = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                self.fundErrorLabel.isHidden = true
+                self.betAmountError.isHidden = true
             }
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SocketIO
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -25,8 +26,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationItem.rightBarButtonItems = [wallet, activeBets]
         MatchsServices.shared.listenForNewMatchs { matchs in
             self.matchs = matchs
-            self.tableView.reloadData()
+            self.reload(tableView: self.tableView)
         }
+    }
+    
+    func reload(tableView: UITableView) {
+        let contentOffset = tableView.contentOffset
+        tableView.reloadData()
+        tableView.layoutIfNeeded()
+        tableView.setContentOffset(contentOffset, animated: false)
     }
     
     @objc func navigateToWallet () {

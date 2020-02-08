@@ -38,5 +38,17 @@ router.post('/activeBets', async (req, res) => {
     res.status(200).send(bets);
 });
 
+router.post('/credit', (req, res) => {
+    const db = req.app.get('db');
+    db.collection('users').doc(req.body.userID).get().then(user => {
+        db.collection('users').doc(req.body.userID).update({
+            'availableFund': user.data().availableFund + req.body.amount
+        }).then(() => {
+            res.sendStatus(200);
+        });  
+    });
+
+});
+
 
 module.exports = router;
