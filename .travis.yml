@@ -8,8 +8,8 @@ branches:
 notifications:
   email: false
 install:
-  - bundle install
-  - bundle update fastlane
+  - sudo bundle install
+  - sudo bundle update fastlane
 script:
 - echo "$VERSION" > VERSION
 - fastlane scan 
