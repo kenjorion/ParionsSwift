@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='ParionsSwiftUITests.xctest' tests='3' failures='0'>
+  <testsuite name='ParionsSwiftTests.ParionsSwiftTests' tests='2' failures='0'>
+    <testcase classname='ParionsSwiftTests.ParionsSwiftTests' name='testExample' time='0.002'/>
+    <testcase classname='ParionsSwiftTests.ParionsSwiftTests' name='testPerformanceExample' time='0.771'/>
+  </testsuite>
+  <testsuite name='ParionsSwiftUITests.ParionsSwiftUITests' tests='1' failures='0'>
+    <testcase classname='ParionsSwiftUITests.ParionsSwiftUITests' name='testExample' time='8.120'/>
+  </testsuite>
+</testsuites>

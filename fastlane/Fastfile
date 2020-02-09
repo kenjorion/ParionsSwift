@@ -1,0 +1,43 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+require 'pp'
+default_platform(:ios)
+
+platform :ios do
+  desc "init lane <3"
+  lane :first do
+    scan 
+    #test unitaire sur tout le code
+    increment_version_number  
+    #incremente la version apres > fastlane > choose 1 > OK 
+    #print increment_version_number(bump_type:"major") 
+    commit_version_bump(force: true)
+    push_to_git_remote 
+    #upload_to_testflight
+  end
+  lane :snap do
+    snapshot 
+  end
+  lane :test2 do
+  gmail(
+    username: "swiftdev.moc@gmail.com",
+    password: "ParionsMoc",
+    to: ["ken.mavoungou@gmail.com", "tristan.luong@gmail.com"],
+    subject: "New release (test)",
+    body: "Voici la nouvelle release de l'application"
+  )
+  end
+end
