@@ -9,7 +9,7 @@ notifications:
   email: false
 
 script:
-- fastlane scan 
+- fastlane ios first
 #security measures for fork PR on github, and restricts their access to Environment Variables
 #- 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/run_on_pull_requests; fi'
 #- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./travis/run_on_non_pull_requests; fi'
