@@ -4,26 +4,12 @@ branches:
   only:
     - master
     - develop
+    - test
 notifications:
   email: false
-install:
-  - bundle install
-  - bundle update fastlane
 script:
-- echo "$VERSION" > VERSION
 - fastlane scan 
-#security measures for fork PR on github, and restricts their access to Environment Variables
-- 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/run_on_pull_requests; fi'
-- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./travis/run_on_non_pull_requests; fi'
-after_success:
-  - echo "Build successful. TRAVIS_TEST_RESULT=$TRAVIS_TEST_RESULT"
-after_failure:
-  - echo "Build failed. TRAVIS_TEST_RESULT=$TRAVIS_TEST_RESULT"
-deploy:
-  skip_cleanup: true
 
-git:
-  clone: false
 
 
 
