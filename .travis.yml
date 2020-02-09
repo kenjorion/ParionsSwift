@@ -8,7 +8,9 @@ branches:
 notifications:
   email: false
 script:
-- fastlane scan 
+- fastlane scan(
+  scheme: "ParionsSwift"
+  )
 
 
 
