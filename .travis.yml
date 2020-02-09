@@ -7,4 +7,4 @@ branches:
 notifications:
   email: false
 script:
-- fastlane scan ( scheme: "ParionsSwift")
+- fastlane ios justscan

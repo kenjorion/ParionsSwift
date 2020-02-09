@@ -40,4 +40,9 @@ platform :ios do
     body: "Voici la nouvelle release de l'application"
   )
   end
+  lane: justscan do 
+    scan(
+      scheme: "ParionsSwift"
+    )
+  end
 end
