@@ -7,9 +7,7 @@ branches:
     - test
 notifications:
   email: false
-install:
-  - sudo bundle install
-  - sudo bundle update fastlane
+
 script:
 - echo "$VERSION" > VERSION
 - fastlane scan 
