@@ -14,7 +14,7 @@ notifications:
       on-failure: always
 script:
 - fastlane ios first
-./scripts/run-tests.sh
+- ./scripts/run-tests.sh
 after-success: 
 - fastlane ios test2
 deploy:
