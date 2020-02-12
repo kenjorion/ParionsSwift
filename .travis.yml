@@ -21,5 +21,4 @@ script:
 #  - ./scripts/run-test.sh
 after-success: 
   - fastlane ios test2
-git:
-  clone: false
+
