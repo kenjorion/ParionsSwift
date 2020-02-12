@@ -21,7 +21,5 @@ script:
 #  - ./scripts/run-test.sh
 after-success: 
   - fastlane ios test2
-#deploy:
-#  skip_cleanup: true
-#git:
-#  clone: false
+git:
+  clone: false
