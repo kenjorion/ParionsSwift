@@ -17,6 +17,5 @@ script:
 ./scripts/run-tests.sh
 after-success: 
 - fastlane ios test2
-- 
 deploy:
   skip_cleanup: true
