@@ -6,17 +6,21 @@ branches:
     - test
 notifications:
   email: false
-    slack:
-      rooms:
+  slack:
+    rooms:
       - parionsswift:Xj4Neyh7Vs3xxmNxPkxk2TmW#general
       - parionsswift:Xj4Neyh7Vs3xxmNxPkxk2TmW#random
-      on-success: always
-      on-failure: always
+    on-success: always
+    on-failure: always
+    template:
+      - "Repo `%{repository_slug}` *%{result}* build (<%{build_url}|#%{build_number}>) for commit (<%{compare_url}|%{commit}>) on branch `%{branch}`."
+      - "Execution time: *%{duration}*"
+      - "Message: %{message}"
 script:
-- fastlane ios first
-- ./scripts/run-tests.sh
+  - fastlane ios first
+  - ./scripts/run-tests.sh
 after-success: 
-- fastlane ios test2
+  - fastlane ios test2
 deploy:
   skip_cleanup: true
 git:
