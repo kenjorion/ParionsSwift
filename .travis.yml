@@ -7,7 +7,7 @@ branches:
 notifications:
   email: false
 script:
-- fastlane ios justscan
+- fastlane ios first
 #./scripts/run-tests.sh
 after-success: 
 - fastlane ios test2
