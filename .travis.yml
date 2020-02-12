@@ -18,10 +18,10 @@ notifications:
       - "Message: %{message}"
 script:
   - fastlane ios first
-  - ./scripts/run-test.sh
+#  - ./scripts/run-test.sh
 after-success: 
   - fastlane ios test2
-deploy:
-  skip_cleanup: true
-git:
-  clone: false
+#deploy:
+#  skip_cleanup: true
+#git:
+#  clone: false
