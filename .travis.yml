@@ -21,4 +21,5 @@ after-success:
 deploy:
   skip_cleanup: true
 
-  
+git:
+  clone: false

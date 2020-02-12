@@ -31,6 +31,16 @@ fastlane ios snap
 fastlane ios test2
 ```
 
+### ios justscan
+```
+fastlane ios justscan
+```
+
+### ios commitformerge
+```
+fastlane ios commitformerge
+```
+
 
 ----
 
