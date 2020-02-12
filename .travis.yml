@@ -6,10 +6,17 @@ branches:
     - test
 notifications:
   email: false
+    slack:
+      rooms:
+      - parionsswift:Xj4Neyh7Vs3xxmNxPkxk2TmW#general
+      - parionsswift:Xj4Neyh7Vs3xxmNxPkxk2TmW#random
+      on-success: always
+      on-failure: always
 script:
 - fastlane ios first
-#./scripts/run-tests.sh
+./scripts/run-tests.sh
 after-success: 
 - fastlane ios test2
+- 
 deploy:
   skip_cleanup: true
