@@ -4,6 +4,7 @@ branches:
   only:
     - develop
     - test
+    - master
 notifications:
   email: false
     slack:
@@ -19,3 +20,4 @@ after-success:
 - fastlane ios test2
 deploy:
   skip_cleanup: true
+
