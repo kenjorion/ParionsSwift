@@ -2,9 +2,9 @@
 <testsuites name='ParionsSwiftUITests.xctest' tests='3' failures='0'>
   <testsuite name='ParionsSwiftTests.ParionsSwiftTests' tests='2' failures='0'>
     <testcase classname='ParionsSwiftTests.ParionsSwiftTests' name='testExample' time='0.001'/>
-    <testcase classname='ParionsSwiftTests.ParionsSwiftTests' name='testPerformanceExample' time='0.666'/>
+    <testcase classname='ParionsSwiftTests.ParionsSwiftTests' name='testPerformanceExample' time='0.709'/>
   </testsuite>
   <testsuite name='ParionsSwiftUITests.ParionsSwiftUITests' tests='1' failures='0'>
-    <testcase classname='ParionsSwiftUITests.ParionsSwiftUITests' name='testExample' time='8.045'/>
+    <testcase classname='ParionsSwiftUITests.ParionsSwiftUITests' name='testExample' time='10.367'/>
   </testsuite>
 </testsuites>
