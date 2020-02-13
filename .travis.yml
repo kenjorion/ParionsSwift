@@ -18,7 +18,7 @@ notifications:
       - "Message: %{message}"
 script:
   - fastlane ios first
-  - /scripts/run-test.sh
+  - ./scripts/run-test.sh
 after-success: 
   - fastlane ios test2
 
